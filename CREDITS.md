@@ -1,23 +1,20 @@
 # Créditos e Licenças
 
-> Este arquivo é **gerado** a partir de `sources/manifest.yaml` e dos
-> `sources/<id>/integrated.yaml` (a partir da Fase 8). Não editar à mão — assim
-> crédito e licença nunca divergem da proveniência real.
+> Gerado automaticamente por `scripts/integrate.mjs report`.
+> Última atualização: 2026-06-22
 
-O CPE não substitui os projetos originais. Ele atua como camada de integração
-e orquestração, preservando autoria, licença e rastreabilidade de cada
-contribuição.
+O CPE não substitui os projetos originais. Atua como camada de integração
+preservando autoria, licença e rastreabilidade de cada contribuição.
 
 ## Fontes (upstream)
 
-| Fonte | Autor | Repositório | Responsável por |
-|---|---|---|---|
-| Andrej Karpathy Skills | multica-ai | https://github.com/multica-ai/andrej-karpathy-skills | skills, engenharia, arquitetura |
-| Open Design | nexu-io | https://github.com/nexu-io/open-design | UI, UX, design system |
-| Ruflo | ruvnet | https://github.com/ruvnet/ruflo | workflows, agentes, automação |
-| ECC | affaan-m | https://github.com/affaan-m/ECC | organização, commands, estrutura |
-| Superpowers | obra | https://github.com/obra/superpowers | ferramentas, utilidades |
-| Anthropic Frontend Design | Anthropic | (referência oficial) | front-end, design rules |
+| Fonte | Autor | Repositório | Licença | Commit |
+|---|---|---|---|---|
+| Andrej Karpathy Skills | multica-ai | [link](https://github.com/multica-ai/andrej-karpathy-skills) | none | `2c606141` |
+| Open Design | nexu-io | [link](https://github.com/nexu-io/open-design) | Apache-2.0 | `1cb7eae4` |
+| Ruflo | ruvnet | [link](https://github.com/ruvnet/ruflo) | MIT | `9c28fe03` |
+| ECC (Everything Claude Code) | affaan-m | [link](https://github.com/affaan-m/ECC) | MIT | `71d22d0a` |
+| Superpowers | obra (Jesse Vincent) | [link](https://github.com/obra/superpowers) | MIT | `896224c4` |
+| Anthropic Frontend Design (oficial) | Anthropic (Prithvi Rajasekaran, Alexander Bricken) | [link](https://github.com/anthropics/claude-plugins-official) | Apache-2.0 | `545162ba` |
 
-> Licença e commit fixado de cada fonte são detectados e registrados na
-> Fase 2 (Integração) e refletidos aqui automaticamente.
+> Licença e commit de cada fonte são registrados em `sources/<id>/integrated.yaml`.

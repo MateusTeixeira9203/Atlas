@@ -1,0 +1,56 @@
+# =============================================================================
+# CPE — Recursos integrados de: ruflo
+# =============================================================================
+
+source_id: ruflo
+schema_version: 1
+status_note: "Planejado na Fase 2. Extracao real na Fase 4 (Agentes) e Fase 5 (Commands)."
+license: MIT
+
+# ESTRATEGIA: ruflo e massivo (531 MB, 40+ plugins TypeScript).
+# NAO integrar o framework inteiro — extrair padroes, guias e configuracoes
+# que enriquecem o cpe-workflows. O codigo TypeScript do ruflo e muito
+# especializado (swarm, RAG, federation) e nao se encaixa diretamente.
+# O valor real esta em: padroes de orquestracao, config de agentes (TOML/YAML),
+# documentacao de workflow e CLAUDE.md de integracao.
+
+resources:
+  - id: ruflo-agent-orchestration-guide
+    type: documentation
+    status: planned
+    target_plugin: cpe-workflows
+    original_path: AGENTS.md
+    original_url: https://github.com/ruvnet/ruflo/blob/main/AGENTS.md
+    source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
+    normalized: true
+    adaptation_note: "Extrair padroes de coordenacao de agentes (Coordinator, Coder, Tester, Reviewer, Architect) como guia de workflow no cpe-workflows. Remover referencias a APIs proprietarias do ruflo."
+    integrated_at: null
+
+  - id: ruflo-agent-config-profiles
+    type: template
+    status: planned
+    target_plugin: cpe-workflows
+    original_path: .agents/config.toml
+    original_url: https://github.com/ruvnet/ruflo/blob/main/.agents/config.toml
+    source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
+    normalized: true
+    adaptation_note: "Os profiles Dev/Safe/CI do config.toml sao um excelente template de configuracao de agentes. Adaptar para YAML (padrao CPE) e remover dependencias ruflo."
+    integrated_at: null
+
+  - id: ruflo-integration-guide
+    type: behavioral-guide
+    status: planned
+    target_plugin: cpe-workflows
+    original_path: CLAUDE.md
+    original_url: https://github.com/ruvnet/ruflo/blob/main/CLAUDE.md
+    source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
+    normalized: true
+    adaptation_note: "CLAUDE.md de 50.8 KB — rico em padroes de integracao. Extrair principios genericos de coordenacao; remover instrucoes especificas do ruflo CLI."
+    integrated_at: null
+
+notes: |
+  ruflo e um framework de producao complexo. Integracao direta do codigo
+  TypeScript nao faz sentido para o CPE. O valor esta em padroes e documentacao.
+  531 MB -> repo pesado; nao clonar no state_dir. Acessar recursos via GitHub API
+  ou sparse-checkout durante integracao.
+  MIT license — atribuicao simples.

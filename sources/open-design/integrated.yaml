@@ -1,0 +1,89 @@
+# =============================================================================
+# CPE — Recursos integrados de: open-design
+# =============================================================================
+
+source_id: open-design
+schema_version: 1
+status_note: "Planejado na Fase 2. Extracao real na Fase 6 (Design Intelligence)."
+license: Apache-2.0
+
+# ESTRATEGIA: open-design e massivo (200+ skills, 250+ design systems).
+# NAO integrar tudo — curacao seletiva das categorias de maior valor para o CPE.
+# Criterio de selecao: recursos que elevam a qualidade visual e evitam o "generico".
+
+resources:
+  # --- Skills de design selecionadas ---
+  - id: open-design-skill-brand
+    type: skill
+    status: planned
+    target_plugin: cpe-design
+    original_path: skills/brand/
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/brand
+    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    normalized: true
+    adaptation_note: "Curacao das skills de brand identity para cpe-design. Remover skills de ferramentas especificas do open-design (od CLI)."
+    integrated_at: null
+
+  - id: open-design-skill-cards
+    type: skill
+    status: planned
+    target_plugin: cpe-design
+    original_path: skills/cards/
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/cards
+    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    normalized: true
+    adaptation_note: "Cards e componentes visuais — alto valor para evitar UI generica."
+    integrated_at: null
+
+  - id: open-design-skill-editorial
+    type: skill
+    status: planned
+    target_plugin: cpe-design
+    original_path: skills/editorial/
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/editorial
+    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    normalized: true
+    adaptation_note: null
+    integrated_at: null
+
+  - id: open-design-skill-animation
+    type: skill
+    status: planned
+    target_plugin: cpe-design
+    original_path: skills/animation/
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/animation
+    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    normalized: true
+    adaptation_note: "Microinteracoes e animacoes — exige revisao para garantir compatibilidade fora do ecossistema od."
+    integrated_at: null
+
+  # --- Design systems (selecao curada) ---
+  - id: open-design-systems-core
+    type: design-system
+    status: planned
+    target_plugin: cpe-design
+    original_path: design-systems/
+    original_url: https://github.com/nexu-io/open-design/tree/main/design-systems
+    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    normalized: true
+    adaptation_note: "Curacao de 10-15 design systems mais distintos (minimal, modern, luxury, editorial, etc). Os 250+ originais incluem redundancias — relatorio de dedup necessario na Fase 6."
+    integrated_at: null
+
+  # --- Prompt templates ---
+  - id: open-design-prompt-templates
+    type: prompt-template
+    status: planned
+    target_plugin: cpe-design
+    original_path: prompt-templates/
+    original_url: https://github.com/nexu-io/open-design/tree/main/prompt-templates
+    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    normalized: true
+    adaptation_note: "Selecao de templates de image/video prompts mais genericos (independentes do od CLI)."
+    integrated_at: null
+
+notes: |
+  open-design e o repositorio mais rico em design mas tambem mais acoplado
+  ao ecossistema proprietario nexu-io/open-design. A curacao precisa remover
+  referencias ao od CLI e UI propria antes de integrar ao cpe-design.
+  Apache 2.0 exige atribuicao em toda distribuicao — incluir no cabecalho de cada arquivo.
+  Commit mais recente: 2026-06-22 (repo ativamente mantido).

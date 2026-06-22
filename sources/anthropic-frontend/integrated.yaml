@@ -1,0 +1,34 @@
+# =============================================================================
+# CPE — Recursos integrados de: Anthropic Frontend Design (oficial)
+# =============================================================================
+
+source_id: anthropic-frontend
+schema_version: 1
+status_note: "Planejado na Fase 2. Extracao real na Fase 6 (Design Intelligence)."
+license: Apache-2.0
+repository: https://github.com/anthropics/claude-plugins-official
+subpath: plugins/frontend-design
+
+resources:
+  - id: anthropic-frontend-design-skill
+    type: skill
+    status: planned
+    target_plugin: cpe-design
+    original_path: plugins/frontend-design/skills/frontend-design/SKILL.md
+    original_url: https://github.com/anthropics/claude-plugins-official/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md
+    source_commit: 545162ba19782cb08668a5d1bb51a8e0368872ad
+    normalized: false
+    adaptation_note: |
+      Skill oficial Anthropic (8.26 KB). Foco: gerar interfaces distintas e
+      com qualidade de producao, evitando a 'estetica generica de IA'.
+      Integrar diretamente em cpe-design/skills/frontend-design/.
+      Atribuicao: Prithvi Rajasekaran, Alexander Bricken (Anthropic).
+    integrated_at: null
+
+notes: |
+  Esta e a unica fonte com autoria direta da Anthropic — tratada com prioridade.
+  O plugin frontend-design e a referencia canonica para geracao de UI de qualidade.
+  O CPE pode instalá-lo via 'claude plugin install frontend-design@claude-plugins-official'
+  como alternativa ou complemento ao cpe-design — avaliar na Fase 6 se instalar
+  como dependencia ou absorver o conteudo da skill diretamente.
+  Apache 2.0 — atribuicao obrigatoria.

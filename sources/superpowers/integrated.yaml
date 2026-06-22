@@ -1,0 +1,143 @@
+# =============================================================================
+# CPE — Recursos integrados de: superpowers
+# =============================================================================
+
+source_id: superpowers
+schema_version: 1
+status_note: "Decisao tomada na Fase 2. Ver decisions/dedup-report.md para justificativa completa."
+license: MIT
+
+# DECISAO DE INTEGRACAO: NAO REEMPACOTAR
+# As 14 skills do superpowers ja estao instaladas nativamente em
+# ~/.claude/skills/ neste ambiente. Reempacotar dentro do cpe-* criaria
+# conflito de definicao, confusao de versao e carga dupla no contexto.
+#
+# O CPE REFERENCIA o superpowers, nao o absorve.
+# Acao: no instalador (Fase 8), detectar se superpowers esta instalado;
+# se nao estiver, instalá-lo como prerequisito.
+
+integration_decision: reference-as-dependency
+decided_at: 2026-06-22
+decision_rationale: sources/superpowers/decisions/dedup-report.md
+
+resources:
+  # Todas as 14 skills estao listadas aqui como REFERENCE (nao extraidas).
+  # O CPE documenta sua existencia para o Update Engine monitorar.
+
+  - id: superpowers-skill-brainstorming
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/brainstorming/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-dispatching-parallel-agents
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/dispatching-parallel-agents/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-executing-plans
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/executing-plans/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-finishing-a-development-branch
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/finishing-a-development-branch/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-receiving-code-review
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/receiving-code-review/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-requesting-code-review
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/requesting-code-review/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-subagent-driven-development
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/subagent-driven-development/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-systematic-debugging
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/systematic-debugging/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-test-driven-development
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/test-driven-development/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-using-git-worktrees
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/using-git-worktrees/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-using-superpowers
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/using-superpowers/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-verification-before-completion
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/verification-before-completion/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-writing-plans
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/writing-plans/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+  - id: superpowers-skill-writing-skills
+    type: skill
+    status: reference
+    already_installed: true
+    install_path: "~/.claude/skills/writing-skills/"
+    source_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    cpe_action: none
+
+notes: |
+  superpowers e uma dependencia implicita do CPE, nao uma fonte de extracao.
+  O instalador do CPE (Fase 8) deve verificar se o superpowers esta instalado
+  e instala-lo como prerequisito se nao estiver.
+  Update Engine monitora o superpowers separadamente para detectar novas skills.

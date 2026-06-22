@@ -2,12 +2,9 @@
 # CPE — Manifesto de Fontes (Sources)
 # -----------------------------------------------------------------------------
 # Registro das fontes upstream que o CPE estuda e cura. O CPE NAO copia os
-# repositorios: ele extrai recursos selecionados com proveniencia.
+# repositorios: ele extrai recursos selecionados com proveniencia completa.
 #
-# Campos `pinned_commit`, `license` e `last_sync` ficam `null` ate a Fase 2
-# (Integracao), quando o integrador os detecta e preenche automaticamente.
-# Esta separacao e proposital: o manifesto declara intencao; a integracao
-# registra fatos verificados.
+# Atualizado na Fase 2 (Integracao) com commits e licencas reais.
 # =============================================================================
 
 schema_version: 1
@@ -17,54 +14,71 @@ sources:
     name: Andrej Karpathy Skills
     repository: https://github.com/multica-ai/andrej-karpathy-skills
     author: multica-ai
-    responsible_for: [skills, engineering, architecture, development]
-    pinned_commit: null
-    license: null
-    last_sync: null
+    responsible_for: [skills, engineering, behavioral-guidelines]
+    pinned_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
+    pinned_date: 2026-04-20
+    license: none
+    license_note: "Repositorio sem licenca declarada. Uso restrito: referencia e estudo. NAO redistribuir conteudo sem autorizacao explicita do autor."
+    last_sync: 2026-06-22
+    integrated_yaml: sources/karpathy/integrated.yaml
 
   - id: open-design
     name: Open Design
     repository: https://github.com/nexu-io/open-design
     author: nexu-io
-    responsible_for: [ui, ux, components, design-system, inspiration]
-    pinned_commit: null
-    license: null
-    last_sync: null
+    responsible_for: [ui, ux, design-system, design-rules, inspiration]
+    pinned_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
+    pinned_date: 2026-06-22
+    license: Apache-2.0
+    license_note: "Requer atribuicao. Redistribuicao permitida com creditos (Apache 2.0)."
+    last_sync: 2026-06-22
+    integrated_yaml: sources/open-design/integrated.yaml
 
   - id: ruflo
     name: Ruflo
     repository: https://github.com/ruvnet/ruflo
     author: ruvnet
     responsible_for: [workflows, agents, dev-flows, automation]
-    pinned_commit: null
-    license: null
-    last_sync: null
+    pinned_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
+    pinned_date: 2026-06-18
+    license: MIT
+    license_note: "Redistribuicao permitida com atribuicao (MIT)."
+    last_sync: 2026-06-22
+    integrated_yaml: sources/ruflo/integrated.yaml
 
   - id: ecc
-    name: ECC
+    name: ECC (Everything Claude Code)
     repository: https://github.com/affaan-m/ECC
     author: affaan-m
-    responsible_for: [organization, commands, structure]
-    pinned_commit: null
-    license: null
-    last_sync: null
+    responsible_for: [organization, commands, agents, skills, structure]
+    pinned_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    pinned_date: 2026-06-21
+    license: MIT
+    license_note: "Redistribuicao permitida com atribuicao (MIT)."
+    last_sync: 2026-06-22
+    integrated_yaml: sources/ecc/integrated.yaml
 
   - id: superpowers
     name: Superpowers
     repository: https://github.com/obra/superpowers
-    author: obra
-    responsible_for: [tools, utilities, automation, improvements]
-    pinned_commit: null
-    license: null
-    last_sync: null
-    # ATENCAO: parcialmente ja instalado em ~/.claude/skills neste ambiente.
-    # Dedup obrigatorio na Fase 3 — comparar, relatar e justificar antes de absorver.
+    author: obra (Jesse Vincent)
+    responsible_for: [skills, development-methodology, workflows]
+    pinned_commit: 896224c4b1879920ab573417e68fd51d2ccc9072
+    pinned_date: 2026-06-18
+    license: MIT
+    license_note: "Redistribuicao permitida com atribuicao (MIT). ATENCAO: 14 skills ja estao instaladas em ~/.claude/skills — ver decisions/dedup-report.md."
+    last_sync: 2026-06-22
+    integrated_yaml: sources/superpowers/integrated.yaml
 
   - id: anthropic-frontend
     name: Anthropic Frontend Design (oficial)
-    repository: null   # referencia oficial a confirmar na Fase 2
-    author: Anthropic
+    repository: https://github.com/anthropics/claude-plugins-official
+    subpath: plugins/frontend-design
+    author: Anthropic (Prithvi Rajasekaran, Alexander Bricken)
     responsible_for: [frontend, ui-generation, design-rules, visual-quality]
-    pinned_commit: null
-    license: null
-    last_sync: null
+    pinned_commit: 545162ba19782cb08668a5d1bb51a8e0368872ad
+    pinned_date: 2026-06-22
+    license: Apache-2.0
+    license_note: "Plugin oficial Anthropic. Redistribuicao permitida com atribuicao (Apache 2.0)."
+    last_sync: 2026-06-22
+    integrated_yaml: sources/anthropic-frontend/integrated.yaml

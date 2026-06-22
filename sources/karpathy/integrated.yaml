@@ -1,0 +1,40 @@
+# =============================================================================
+# CPE — Recursos integrados de: andrej-karpathy-skills
+# =============================================================================
+
+source_id: karpathy
+schema_version: 1
+status_note: "Planejado na Fase 2. Extracao real na Fase 3 (Skills)."
+
+# ATENCAO DE LICENCA: repositorio sem licenca declarada.
+# Decisao: extrair apenas os principios como guia comportamental no cpe-core,
+# com atribuicao clara. NAO empacotar o SKILL.md original como-e.
+license_decision: reference-with-attribution
+
+resources:
+  - id: karpathy-guidelines-skill
+    type: skill
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: skills/karpathy-guidelines/SKILL.md
+    original_url: https://github.com/multica-ai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md
+    source_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
+    normalized: false
+    adaptation_note: "Extrair como skill cpe-engineering/skills/karpathy-guidelines/. Manter conteudo original; adicionar cabecalho de proveniencia CPE."
+    integrated_at: null
+
+  - id: karpathy-principles-behavioral
+    type: behavioral-guide
+    status: planned
+    target_plugin: cpe-core
+    original_path: CLAUDE.md
+    original_url: https://github.com/multica-ai/andrej-karpathy-skills/blob/main/CLAUDE.md
+    source_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
+    normalized: true
+    adaptation_note: "Os 4 principios (Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution) serao sintetizados como guia comportamental do cpe-core. Conteudo original identificavel; atribuicao explicita."
+    integrated_at: null
+
+notes: |
+  Repositorio altamente focado (1 skill + CLAUDE.md). Pequeno e cirurgico.
+  Principal valor: os 4 principios comportamentais de Karpathy para LLMs.
+  Valor secundario: a skill karpathy-guidelines pronta para uso direto.

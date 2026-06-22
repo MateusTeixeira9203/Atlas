@@ -1,0 +1,126 @@
+# =============================================================================
+# CPE — Recursos integrados de: ECC (Everything Claude Code)
+# =============================================================================
+
+source_id: ecc
+schema_version: 1
+status_note: "Planejado na Fase 2. Extracao real nas Fases 3-5 (Skills, Agentes, Commands)."
+license: MIT
+
+# ESTRATEGIA: ECC e a fonte mais rica em recursos concretos para o CPE:
+# 271 skills, 92 commands, 32+ agentes especializados — todos em Markdown.
+# Formato muito proximo do padrao CPE (skills/[name]/SKILL.md, commands/).
+# Foco: curacao dos melhores — evitar duplicar o que o superpowers ja prove.
+# Dedup obrigatorio com superpowers (skills sobrepostas) — ver decisions/.
+
+resources:
+  # --- Agentes especializados de revisao (Fase 4) ---
+  - id: ecc-agent-code-reviewer
+    type: agent
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: agents/code-reviewer/
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Agente de code-review generalista — alto valor. Adaptar para padrao cpe-engineering/agents/."
+    integrated_at: null
+
+  - id: ecc-agent-security-reviewer
+    type: agent
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: agents/security-reviewer/
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: null
+    integrated_at: null
+
+  - id: ecc-agent-spec-miner
+    type: agent
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: agents/spec-miner/
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Agente para minerar especificacoes — util em projetos complexos."
+    integrated_at: null
+
+  - id: ecc-agents-lang-specialized
+    type: agent
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: agents/specialized/
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Revisores especializados por linguagem: cpp, go, kotlin, rust, typescript, python, java. Selecionar as mais relevantes para o perfil do usuario."
+    integrated_at: null
+
+  # --- Commands selecionados (Fase 5) ---
+  - id: ecc-commands-review
+    type: command
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: commands/code-review.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Verificar dedup com skill code-review do superpowers."
+    integrated_at: null
+
+  - id: ecc-commands-plan
+    type: command
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: commands/plan.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Verificar dedup com skill writing-plans do superpowers."
+    integrated_at: null
+
+  - id: ecc-commands-epic
+    type: command
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: commands/epic-claim.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Epic workflow (claim/decompose/publish) — unico no ECC, sem dedup previsto."
+    integrated_at: null
+
+  - id: ecc-commands-build-test
+    type: command
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: commands/
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Selecao de commands de build/test por linguagem (go-build, rust-build, etc). Curacao necessaria — selecionar linguagens mais relevantes."
+    integrated_at: null
+
+  # --- Skills de engenharia selecionadas (Fase 3) ---
+  - id: ecc-skills-engineering-core
+    type: skill
+    status: planned
+    target_plugin: cpe-engineering
+    original_path: skills/
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Curacao das 271 skills do ECC. CRITERIO: excluir skills identicas ou muito similares as 14 do superpowers (ja instaladas). Priorizar skills de infrastructure, ML/AI e domain-specific sem equivalente no superpowers."
+    integrated_at: null
+
+  # --- Filosofia e guia comportamental ---
+  - id: ecc-soul-behavioral
+    type: behavioral-guide
+    status: planned
+    target_plugin: cpe-core
+    original_path: SOUL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "SOUL.md documenta a filosofia e diretrizes comportamentais do ECC. Sintetizar para o cpe-core junto com os principios Karpathy."
+    integrated_at: null
+
+notes: |
+  ECC e o repositorio mais ativo (219k stars, 33k forks) e mais alinhado com
+  o modelo de plugins do Claude Code. Formato dos recursos e quase identico
+  ao CPE (skills/[name]/SKILL.md).
+  Maior risco: dedup extenso com superpowers. Ver decisions/dedup-ecc-vs-superpowers.md.
+  MIT license — atribuicao simples.
