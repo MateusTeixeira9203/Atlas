@@ -20,8 +20,8 @@ resources:
     original_url: https://github.com/multica-ai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md
     source_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
     normalized: false
-    adaptation_note: "Extrair como skill cpe-engineering/skills/karpathy-guidelines/. Manter conteudo original; adicionar cabecalho de proveniencia CPE."
-    integrated_at: null
+    adaptation_note: "Conteúdo original preservado; cabeçalho CPE adicionado no frontmatter."
+    integrated_at: 2026-06-22
 
   - id: karpathy-principles-behavioral
     type: behavioral-guide

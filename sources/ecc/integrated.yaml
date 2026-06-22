@@ -97,15 +97,189 @@ resources:
     integrated_at: null
 
   # --- Skills de engenharia selecionadas (Fase 3) ---
-  - id: ecc-skills-engineering-core
+  # --- Skills integradas na Fase 3 ---
+  - id: ecc-skill-deployment-patterns
     type: skill
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
-    original_path: skills/
+    original_path: skills/deployment-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    adaptation_note: "Conteúdo original preservado; cabeçalho CPE adicionado."
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-golang-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/golang-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-hexagonal-architecture
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/hexagonal-architecture/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-github-ops
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/github-ops/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-database-migrations
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/database-migrations/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-docker-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/docker-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-java-coding-standards
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/java-coding-standards/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-fastapi-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/fastapi-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-django-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/django-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-intent-driven-development
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/intent-driven-development/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-django-security
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/django-security/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-kotlin-coroutines-flows
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/kotlin-coroutines-flows/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-flutter-dart-code-review
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/flutter-dart-code-review/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-android-clean-architecture
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: skills/android-clean-architecture/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: false
+    integrated_at: 2026-06-22
+
+  # --- Skills stub (conteúdo normalizado; substituir pelo raw do ECC após rate limit) ---
+  - id: ecc-skill-compose-multiplatform-patterns
+    type: skill
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: skills/compose-multiplatform-patterns/SKILL.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: "Curacao das 271 skills do ECC. CRITERIO: excluir skills identicas ou muito similares as 14 do superpowers (ja instaladas). Priorizar skills de infrastructure, ML/AI e domain-specific sem equivalente no superpowers."
-    integrated_at: null
+    adaptation_note: "Stub CPE — caminho não confirmado no ECC. Substituir após rate limit."
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-jpa-patterns
+    type: skill
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: skills/jpa-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-django-celery
+    type: skill
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: skills/django-celery/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-benchmark
+    type: skill
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: skills/benchmark/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-dotnet-patterns
+    type: skill
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: skills/dotnet-patterns/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-skill-defi-amm-security
+    type: skill
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: skills/defi-amm-security/SKILL.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
 
   # --- Filosofia e guia comportamental ---
   - id: ecc-soul-behavioral
