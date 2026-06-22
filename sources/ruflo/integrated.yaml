@@ -38,39 +38,48 @@ resources:
     adaptation_note: "Padrão A* de goal planning extraído do goal.ruv.io e implementado como AGENT.md CPE. Não é cópia do TypeScript — é o padrão de planejamento abstraído."
     integrated_at: 2026-06-22
 
-  # --- Recursos planejados (Fases futuras) ---
+  # --- Recursos integrados na Fase 7 ---
   - id: ruflo-agent-orchestration-guide
-    type: documentation
-    status: planned
+    type: skill
+    status: integrated
     target_plugin: cpe-workflows
-    original_path: AGENTS.md
-    original_url: https://github.com/ruvnet/ruflo/blob/main/AGENTS.md
+    cpe_path: plugins/cpe-workflows/skills/orchestration-guide/SKILL.md
+    original_path: AGENTS.md + CLAUDE.md
+    original_url: https://github.com/ruvnet/ruflo
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
-    normalized: true
-    adaptation_note: "Extrair padroes de coordenacao de agentes como guia de workflow. Fase 7 (Templates)."
-    integrated_at: null
+    integrated_at: 2026-06-22
+    adaptation: >
+      Padrões extraídos de AGENTS.md e CLAUDE.md, normalizados como SKILL.md CPE.
+      Inclui: memory-first protocol, topologias (pipeline/fan-out/supervisor),
+      three-tier model routing, anti-drift protocol, regras de comunicação.
 
   - id: ruflo-agent-config-profiles
     type: template
-    status: planned
-    target_plugin: cpe-workflows
+    status: integrated
+    target_plugin: templates
+    cpe_path: templates/workflows/agent-profiles/TEMPLATE.md
     original_path: .agents/config.toml
     original_url: https://github.com/ruvnet/ruflo/blob/main/.agents/config.toml
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
-    normalized: true
-    adaptation_note: "Profiles Dev/Safe/CI adaptados para YAML CPE. Fase 7 (Templates)."
-    integrated_at: null
+    integrated_at: 2026-06-22
+    adaptation: >
+      TOML convertido para YAML CPE. Profiles dev/safe/ci preservados.
+      Removida dependência de claude-flow CLI. Adicionada seção de security
+      com blocked_file_patterns.
 
   - id: ruflo-integration-guide
-    type: behavioral-guide
-    status: planned
+    type: skill
+    status: integrated
     target_plugin: cpe-workflows
+    cpe_path: plugins/cpe-workflows/skills/orchestration-guide/SKILL.md
     original_path: CLAUDE.md
     original_url: https://github.com/ruvnet/ruflo/blob/main/CLAUDE.md
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
-    normalized: true
-    adaptation_note: "Extrair princípios genéricos de coordenação. Fase 7 (Templates)."
-    integrated_at: null
+    integrated_at: 2026-06-22
+    adaptation: >
+      Princípios genéricos de coordenação (three-tier routing, concurrency model,
+      anti-drift) absorvidos no orchestration-guide skill. Referências ao
+      ruflo CLI e ao sistema proprietário SONA foram omitidas.
 
 notes: |
   ruflo e um framework de producao complexo. Integracao direta do codigo
