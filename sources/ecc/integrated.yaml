@@ -175,46 +175,334 @@ resources:
   # swift-reviewer, tdd-guide, type-design-analyzer, vue-reviewer
   # → Candidatos para Fases 5-12 conforme demanda do usuário.
 
-  # --- Commands selecionados (Fase 5) ---
-  - id: ecc-commands-review
-    type: command
-    status: planned
-    target_plugin: cpe-engineering
-    original_path: commands/code-review.md
-    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
-    normalized: true
-    adaptation_note: "Verificar dedup com skill code-review do superpowers."
-    integrated_at: null
+  # --- Commands integrados na Fase 5 ---
+  # cpe-engineering (28 commands)
 
-  - id: ecc-commands-plan
+  # Epic workflow (7)
+  - id: ecc-cmd-epic-claim
     type: command
-    status: planned
-    target_plugin: cpe-engineering
-    original_path: commands/plan.md
-    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
-    normalized: true
-    adaptation_note: "Verificar dedup com skill writing-plans do superpowers."
-    integrated_at: null
-
-  - id: ecc-commands-epic
-    type: command
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
     original_path: commands/epic-claim.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: "Epic workflow (claim/decompose/publish) — unico no ECC, sem dedup previsto."
-    integrated_at: null
+    integrated_at: 2026-06-22
 
-  - id: ecc-commands-build-test
+  - id: ecc-cmd-epic-decompose
     type: command
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
-    original_path: commands/
+    original_path: commands/epic-decompose.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: "Selecao de commands de build/test por linguagem (go-build, rust-build, etc). Curacao necessaria — selecionar linguagens mais relevantes."
-    integrated_at: null
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-epic-publish
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/epic-publish.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-epic-review
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/epic-review.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-epic-sync
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/epic-sync.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-epic-unblock
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/epic-unblock.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-epic-validate
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/epic-validate.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # Quality/security (5)
+  - id: ecc-cmd-checkpoint
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/checkpoint.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-security-scan
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/security-scan.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Adaptado: removida dependência do ECC AgentShield; usa ferramentas padrão."
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-quality-gate
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/quality-gate.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-test-coverage
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/test-coverage.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-build-fix
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/build-fix.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # PR/docs (3)
+  - id: ecc-cmd-pr
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/pr.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-review-pr
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/review-pr.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-update-docs
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/update-docs.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-refactor-clean
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/refactor-clean.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # Build/test por linguagem (8)
+  - id: ecc-cmd-go-build
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/go-build.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-go-test
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/go-test.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-rust-build
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/rust-build.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-rust-test
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/rust-test.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-kotlin-build
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/kotlin-build.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-kotlin-test
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/kotlin-test.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-react-build
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/react-build.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-react-test
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/react-test.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # Review por linguagem (4)
+  - id: ecc-cmd-python-review
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: commands/python-review.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-go-review
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/go-review.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-rust-review
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/rust-review.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-react-review
+    type: command
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: commands/react-review.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # cpe-workflows commands (7)
+  - id: ecc-cmd-prp-plan
+    type: command
+    status: integrated
+    target_plugin: cpe-workflows
+    original_path: commands/prp-plan.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "PRP (Product Requirements Protocol) 6-fases. Mantido vs plan.md por ser substancialmente mais rico."
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-prp-implement
+    type: command
+    status: stub
+    target_plugin: cpe-workflows
+    original_path: commands/prp-implement.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-prp-commit
+    type: command
+    status: stub
+    target_plugin: cpe-workflows
+    original_path: commands/prp-commit.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-prp-pr
+    type: command
+    status: stub
+    target_plugin: cpe-workflows
+    original_path: commands/prp-pr.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-orch-build-mvp
+    type: command
+    status: integrated
+    target_plugin: cpe-workflows
+    original_path: commands/orch-build-mvp.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Adaptado para invocar agentes CPE em vez de ECC-specific tooling."
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-orch-add-feature
+    type: command
+    status: stub
+    target_plugin: cpe-workflows
+    original_path: commands/orch-add-feature.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-cmd-orch-fix-defect
+    type: command
+    status: stub
+    target_plugin: cpe-workflows
+    original_path: commands/orch-fix-defect.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # Commands ECC EXCLUÍDOS (55 de 92) — ver decisions/dedup-commands-vs-superpowers.md
 
   # --- Skills de engenharia selecionadas (Fase 3) ---
   # --- Skills integradas na Fase 3 ---
