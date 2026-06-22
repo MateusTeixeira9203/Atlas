@@ -1,0 +1,6 @@
+{
+  "name": "cpe-workflows",
+  "description": "Workflows de desenvolvimento, orquestracao de agentes e fluxos de automacao. Curado de Ruflo.",
+  "version": "0.1.0",
+  "author": { "name": "Mateus Teixeira (CPE)" }
+}

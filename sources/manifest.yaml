@@ -1,0 +1,70 @@
+# =============================================================================
+# CPE — Manifesto de Fontes (Sources)
+# -----------------------------------------------------------------------------
+# Registro das fontes upstream que o CPE estuda e cura. O CPE NAO copia os
+# repositorios: ele extrai recursos selecionados com proveniencia.
+#
+# Campos `pinned_commit`, `license` e `last_sync` ficam `null` ate a Fase 2
+# (Integracao), quando o integrador os detecta e preenche automaticamente.
+# Esta separacao e proposital: o manifesto declara intencao; a integracao
+# registra fatos verificados.
+# =============================================================================
+
+schema_version: 1
+
+sources:
+  - id: karpathy
+    name: Andrej Karpathy Skills
+    repository: https://github.com/multica-ai/andrej-karpathy-skills
+    author: multica-ai
+    responsible_for: [skills, engineering, architecture, development]
+    pinned_commit: null
+    license: null
+    last_sync: null
+
+  - id: open-design
+    name: Open Design
+    repository: https://github.com/nexu-io/open-design
+    author: nexu-io
+    responsible_for: [ui, ux, components, design-system, inspiration]
+    pinned_commit: null
+    license: null
+    last_sync: null
+
+  - id: ruflo
+    name: Ruflo
+    repository: https://github.com/ruvnet/ruflo
+    author: ruvnet
+    responsible_for: [workflows, agents, dev-flows, automation]
+    pinned_commit: null
+    license: null
+    last_sync: null
+
+  - id: ecc
+    name: ECC
+    repository: https://github.com/affaan-m/ECC
+    author: affaan-m
+    responsible_for: [organization, commands, structure]
+    pinned_commit: null
+    license: null
+    last_sync: null
+
+  - id: superpowers
+    name: Superpowers
+    repository: https://github.com/obra/superpowers
+    author: obra
+    responsible_for: [tools, utilities, automation, improvements]
+    pinned_commit: null
+    license: null
+    last_sync: null
+    # ATENCAO: parcialmente ja instalado em ~/.claude/skills neste ambiente.
+    # Dedup obrigatorio na Fase 3 — comparar, relatar e justificar antes de absorver.
+
+  - id: anthropic-frontend
+    name: Anthropic Frontend Design (oficial)
+    repository: null   # referencia oficial a confirmar na Fase 2
+    author: Anthropic
+    responsible_for: [frontend, ui-generation, design-rules, visual-quality]
+    pinned_commit: null
+    license: null
+    last_sync: null

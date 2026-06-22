@@ -1,0 +1,34 @@
+# =============================================================================
+# CPE — Configuracao central
+# -----------------------------------------------------------------------------
+# REGRA DE OURO: nenhum caminho absoluto neste arquivo. Tudo e resolvido em
+# runtime (raiz do repo via import.meta.url; home do usuario via os.homedir()).
+# Funciona identico em Windows, Linux e macOS.
+# =============================================================================
+
+cpe:
+  version: 0.1.0
+  marketplace_name: cpe
+  language:
+    docs: pt-BR          # documentacao para humanos
+    identifiers: en      # ids de recursos e codigo
+
+# Estado mutavel (cache de upstream, backups, logs, relatorios) vive FORA do
+# repositorio e fora do OneDrive. Caminho relativo ao home; resolvido em runtime.
+state_dir: "~/.cpe-state"
+
+# Plugins distribuidos por este marketplace (espelha .claude-plugin/marketplace.json).
+plugins:
+  - cpe-core
+  - cpe-engineering
+  - cpe-design
+  - cpe-workflows
+
+install:
+  dry_run_default: true            # mostra o que faria; exige --apply para efetivar
+  backup_before_changes: true      # sempre faz backup antes de tocar em ~/.claude
+  never_overwrite_claude_code: true
+
+update:
+  auto_apply: false                # o Update Engine NUNCA aplica sozinho
+  report_dir: "${state_dir}/update/reports"

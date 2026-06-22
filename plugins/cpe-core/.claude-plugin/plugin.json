@@ -1,0 +1,6 @@
+{
+  "name": "cpe-core",
+  "description": "Convencoes do CPE, meta-comandos e a guarda de design que impede interfaces genericas. Base instalada por todos os outros plugins.",
+  "version": "0.1.0",
+  "author": { "name": "Mateus Teixeira (CPE)" }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "cpe-design",
+  "description": "Inteligencia de UI/UX e design system: hierarquia, tipografia, tokens, acessibilidade, dark mode. Curado de Open Design e do Anthropic Frontend Design.",
+  "version": "0.1.0",
+  "author": { "name": "Mateus Teixeira (CPE)" }
+}

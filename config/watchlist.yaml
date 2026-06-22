@@ -1,0 +1,46 @@
+# =============================================================================
+# CPE — Watchlist do Research Engine
+# -----------------------------------------------------------------------------
+# Define O QUE o Research Engine monitora. Ele apenas GERA RELATORIOS para
+# revisao humana — nunca instala, nunca altera o ambiente automaticamente.
+# =============================================================================
+
+schema_version: 1
+
+# Fontes ja conhecidas (espelha sources/manifest.yaml) — monitora releases/commits.
+sources:
+  - id: karpathy
+    repository: https://github.com/multica-ai/andrej-karpathy-skills
+  - id: open-design
+    repository: https://github.com/nexu-io/open-design
+  - id: ruflo
+    repository: https://github.com/ruvnet/ruflo
+  - id: ecc
+    repository: https://github.com/affaan-m/ECC
+  - id: superpowers
+    repository: https://github.com/obra/superpowers
+
+# Descoberta ampla de novidades no ecossistema Claude Code.
+ecosystem:
+  github_topics:
+    - claude-code
+    - claude-skills
+    - claude-agents
+    - mcp-server
+  keywords:
+    - "claude code skill"
+    - "claude code plugin"
+    - "claude code agent"
+    - "mcp server"
+  watch_for:
+    - new-repos
+    - new-skills
+    - new-mcps
+    - new-prompts
+    - new-workflows
+    - new-tools
+    - best-practices
+
+report:
+  output_dir: "${state_dir}/research/reports"
+  cadence: on-demand     # agendavel via cron/cloud agent em fase futura

@@ -1,0 +1,17 @@
+# Dependencias
+node_modules/
+
+# Estado mutavel — por design vive FORA do repo (state_dir, default ~/.cpe-state).
+# Estas entradas sao apenas redes de seguranca caso algo seja gerado localmente.
+.cpe-state/
+**/cache/
+*.log
+
+# Cache de upstream (caso integrador escreva localmente em vez do state_dir)
+sources/**/cache/
+
+# SO / editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
