@@ -14,46 +14,166 @@ license: MIT
 # Dedup obrigatorio com superpowers (skills sobrepostas) — ver decisions/.
 
 resources:
-  # --- Agentes especializados de revisao (Fase 4) ---
+  # --- Agentes integrados na Fase 4 ---
+
+  # Tier 1: Agentes core (conteúdo baseado em raw ECC via WebFetch)
   - id: ecc-agent-code-reviewer
     type: agent
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
-    original_path: agents/code-reviewer/
+    original_path: agents/code-reviewer.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: "Agente de code-review generalista — alto valor. Adaptar para padrao cpe-engineering/agents/."
-    integrated_at: null
+    adaptation_note: "Reformatado para padrão CPE AGENT.md. Conteúdo preservado via WebFetch summary."
+    integrated_at: 2026-06-22
 
   - id: ecc-agent-security-reviewer
     type: agent
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
-    original_path: agents/security-reviewer/
+    original_path: agents/security-reviewer.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: null
-    integrated_at: null
+    adaptation_note: "Reformatado para padrão CPE AGENT.md. Conteúdo preservado via WebFetch summary."
+    integrated_at: 2026-06-22
 
   - id: ecc-agent-spec-miner
     type: agent
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
-    original_path: agents/spec-miner/
+    original_path: agents/spec-miner.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: "Agente para minerar especificacoes — util em projetos complexos."
-    integrated_at: null
+    adaptation_note: "Reformatado para padrão CPE AGENT.md. Conteúdo preservado via WebFetch summary."
+    integrated_at: 2026-06-22
 
-  - id: ecc-agents-lang-specialized
+  - id: ecc-agent-planner
     type: agent
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
-    original_path: agents/specialized/
+    original_path: agents/planner.md
     source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
     normalized: true
-    adaptation_note: "Revisores especializados por linguagem: cpp, go, kotlin, rust, typescript, python, java. Selecionar as mais relevantes para o perfil do usuario."
-    integrated_at: null
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-architect
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/architect.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-tdd-guide
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/tdd-guide.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-refactor-cleaner
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/refactor-cleaner.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-performance-optimizer
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/performance-optimizer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-loop-operator
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/loop-operator.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  # Tier 2: Language reviewers
+  - id: ecc-agent-python-reviewer
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/python-reviewer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-typescript-reviewer
+    type: agent
+    status: integrated
+    target_plugin: cpe-engineering
+    original_path: agents/typescript-reviewer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-go-reviewer
+    type: agent
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: agents/go-reviewer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Stub CPE — substituir pelo raw do ECC após rate limit."
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-kotlin-reviewer
+    type: agent
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: agents/kotlin-reviewer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Stub CPE — substituir pelo raw do ECC após rate limit."
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-java-reviewer
+    type: agent
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: agents/java-reviewer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Stub CPE — substituir pelo raw do ECC após rate limit."
+    integrated_at: 2026-06-22
+
+  - id: ecc-agent-rust-reviewer
+    type: agent
+    status: stub
+    target_plugin: cpe-engineering
+    original_path: agents/rust-reviewer.md
+    source_commit: 71d22d0a77b7e0684f4e51cba03749b788993cdb
+    normalized: true
+    adaptation_note: "Stub CPE — substituir pelo raw do ECC após rate limit."
+    integrated_at: 2026-06-22
+
+  # ECC agents disponíveis mas fora do escopo CPE Fase 4 (67 total no ECC):
+  # a11y-architect, agent-evaluator, build-error-resolver, chief-of-staff,
+  # code-architect, code-explorer, code-simplifier, comment-analyzer,
+  # conversation-analyzer, cpp-reviewer, csharp-reviewer, dart-build-resolver,
+  # database-reviewer, django-reviewer, doc-updater, docs-lookup, e2e-runner,
+  # fastapi-reviewer, flutter-reviewer, fsharp-reviewer, gan-evaluator/generator/planner,
+  # go-build-resolver, harmonyos-app-resolver, harness-optimizer, healthcare-reviewer,
+  # homelab-architect, java-build-resolver, kotlin-build-resolver, marketing-agent,
+  # mle-reviewer, network-architect, network-config-reviewer, network-troubleshooter,
+  # opensource-forker/packager/sanitizer, performance-optimizer, php-reviewer,
+  # pr-test-analyzer, pytorch-build-resolver, react-build-resolver, react-reviewer,
+  # rust-build-resolver, seo-specialist, silent-failure-hunter, swift-build-resolver,
+  # swift-reviewer, tdd-guide, type-design-analyzer, vue-reviewer
+  # → Candidatos para Fases 5-12 conforme demanda do usuário.
 
   # --- Commands selecionados (Fase 5) ---
   - id: ecc-commands-review

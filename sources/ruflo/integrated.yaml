@@ -15,6 +15,30 @@ license: MIT
 # documentacao de workflow e CLAUDE.md de integracao.
 
 resources:
+  # --- Agentes extraídos na Fase 4 ---
+  - id: ruflo-agent-swarm-coordinator
+    type: agent
+    status: integrated
+    target_plugin: cpe-workflows
+    original_path: .agents/ (swarm orchestration patterns)
+    original_url: https://github.com/ruvnet/ruflo
+    source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
+    normalized: true
+    adaptation_note: "Padrão de orquestração swarm extraído e implementado como AGENT.md CPE. Não é cópia direta — é o padrão materializado em formato portátil."
+    integrated_at: 2026-06-22
+
+  - id: ruflo-agent-goal-planner
+    type: agent
+    status: integrated
+    target_plugin: cpe-workflows
+    original_path: v3/goal_ui/ (goal planner patterns)
+    original_url: https://github.com/ruvnet/ruflo
+    source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
+    normalized: true
+    adaptation_note: "Padrão A* de goal planning extraído do goal.ruv.io e implementado como AGENT.md CPE. Não é cópia do TypeScript — é o padrão de planejamento abstraído."
+    integrated_at: 2026-06-22
+
+  # --- Recursos planejados (Fases futuras) ---
   - id: ruflo-agent-orchestration-guide
     type: documentation
     status: planned
@@ -23,7 +47,7 @@ resources:
     original_url: https://github.com/ruvnet/ruflo/blob/main/AGENTS.md
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
     normalized: true
-    adaptation_note: "Extrair padroes de coordenacao de agentes (Coordinator, Coder, Tester, Reviewer, Architect) como guia de workflow no cpe-workflows. Remover referencias a APIs proprietarias do ruflo."
+    adaptation_note: "Extrair padroes de coordenacao de agentes como guia de workflow. Fase 7 (Templates)."
     integrated_at: null
 
   - id: ruflo-agent-config-profiles
@@ -34,7 +58,7 @@ resources:
     original_url: https://github.com/ruvnet/ruflo/blob/main/.agents/config.toml
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
     normalized: true
-    adaptation_note: "Os profiles Dev/Safe/CI do config.toml sao um excelente template de configuracao de agentes. Adaptar para YAML (padrao CPE) e remover dependencias ruflo."
+    adaptation_note: "Profiles Dev/Safe/CI adaptados para YAML CPE. Fase 7 (Templates)."
     integrated_at: null
 
   - id: ruflo-integration-guide
@@ -45,7 +69,7 @@ resources:
     original_url: https://github.com/ruvnet/ruflo/blob/main/CLAUDE.md
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
     normalized: true
-    adaptation_note: "CLAUDE.md de 50.8 KB — rico em padroes de integracao. Extrair principios genericos de coordenacao; remover instrucoes especificas do ruflo CLI."
+    adaptation_note: "Extrair princípios genéricos de coordenação. Fase 7 (Templates)."
     integrated_at: null
 
 notes: |
