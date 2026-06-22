@@ -1,6 +1,24 @@
 {
   "name": "cpe-design",
-  "description": "Inteligencia de UI/UX e design system: hierarquia, tipografia, tokens, acessibilidade, dark mode. Curado de Open Design e do Anthropic Frontend Design.",
-  "version": "0.1.0",
-  "author": { "name": "Mateus Teixeira (CPE)" }
+  "description": "Design intelligence: token system, visual review, accessibility audit, AI-tell removal, animation, and design brief generation. Curated from Open Design and Anthropic Frontend Design.",
+  "version": "0.2.0",
+  "author": { "name": "Mateus Teixeira (CPE)" },
+  "skills": [
+    "skills/frontend-design",
+    "skills/design-brief",
+    "skills/impeccable-design-polish",
+    "skills/gsap-core",
+    "skills/design-system-tokens"
+  ],
+  "agents": [
+    "agents/ui-architect",
+    "agents/ux-reviewer",
+    "agents/design-polish"
+  ],
+  "commands": [
+    "commands/design-brief.md",
+    "commands/design-review.md",
+    "commands/design-system-create.md",
+    "commands/polish.md"
+  ]
 }

@@ -4,86 +4,186 @@
 
 source_id: open-design
 schema_version: 1
-status_note: "Planejado na Fase 2. Extracao real na Fase 6 (Design Intelligence)."
 license: Apache-2.0
+integrated_at: 2026-06-22
 
-# ESTRATEGIA: open-design e massivo (200+ skills, 250+ design systems).
-# NAO integrar tudo — curacao seletiva das categorias de maior valor para o CPE.
-# Criterio de selecao: recursos que elevam a qualidade visual e evitam o "generico".
+# ESTRATÉGIA: open-design é massivo (200+ skills, 250+ design systems).
+# Curação seletiva das categorias de maior valor. Muitos skills são catálogos
+# que apontam para upstream repos — extraído apenas conteúdo substancial.
+# CPE-authored items sintetizados das fontes marcados como source: cpe.
 
 resources:
-  # --- Skills de design selecionadas ---
-  - id: open-design-skill-brand
+  # ── Skills integradas ──────────────────────────────────────────────────────
+
+  - id: open-design-skill-design-brief
+    type: skill
+    status: integrated
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/skills/design-brief/SKILL.md
+    original_path: skills/design-brief/SKILL.md
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/design-brief
+    source_commit: 1cb7eae4
+    integrated_at: 2026-06-22
+    adaptation: >
+      Conteúdo preservado. Adicionado vocabulário fechado com valores explícitos
+      e regras de resolução de defaults. Removida referência a od CLI.
+    notes: "8 dimensões de design: palette, accent, body, display, layout, mood, density, constraints"
+
+  - id: open-design-skill-impeccable-design-polish
+    type: skill
+    status: integrated
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/skills/impeccable-design-polish/SKILL.md
+    original_path: skills/impeccable-design-polish/SKILL.md
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/impeccable-design-polish
+    source_commit: 1cb7eae4
+    original_author: pbakaus
+    integrated_at: 2026-06-22
+    adaptation: >
+      Normalizado para CPE. Anti-AI-tells preservados integralmente. Adicionado
+      padrão before/after em CSS para clareza.
+
+  - id: open-design-skill-gsap-core
+    type: skill
+    status: integrated
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/skills/gsap-core/SKILL.md
+    original_path: skills/gsap-core/SKILL.md
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/gsap-core
+    source_commit: 1cb7eae4
+    license: MIT
+    integrated_at: 2026-06-22
+    adaptation: >
+      Conteúdo expandido com exemplos de stagger avançado, timelines e hover
+      patterns. MIT license permite preservação direta.
+
+  - id: cpe-skill-design-system-tokens
+    type: skill
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/skills/design-system-tokens/SKILL.md
+    synthesis_sources:
+      - anthropic-frontend (Apache-2.0, commit 545162ba)
+      - open-design (Apache-2.0, commit 1cb7eae4)
+    integrated_at: 2026-06-22
+    notes: >
+      CPE-authored synthesis. Vocabulário canônico de tokens usado por todas as
+      skills e agents de design do CPE. Não é cópia de nenhum upstream.
+
+  # ── Agents ─────────────────────────────────────────────────────────────────
+
+  - id: cpe-agent-ui-architect
+    type: agent
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/agents/ui-architect/AGENT.md
+    model: opus
+    synthesis_sources:
+      - open-design (Apache-2.0, commit 1cb7eae4)
+      - anthropic-frontend (Apache-2.0, commit 545162ba)
+    integrated_at: 2026-06-22
+    notes: "Hierarquia de componentes, layout strategy, token system, ADR de design"
+
+  - id: cpe-agent-ux-reviewer
+    type: agent
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/agents/ux-reviewer/AGENT.md
+    model: sonnet
+    synthesis_sources:
+      - open-design (Apache-2.0, commit 1cb7eae4)
+      - anthropic-frontend (Apache-2.0, commit 545162ba)
+    integrated_at: 2026-06-22
+    notes: "WCAG 2.1 AA, Nielsen heuristics, IA, responsive, form design. BLOCK em violações AA"
+
+  - id: cpe-agent-design-polish
+    type: agent
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/agents/design-polish/AGENT.md
+    model: sonnet
+    synthesis_sources:
+      - open-design (impeccable-design-polish, Apache-2.0, commit 1cb7eae4)
+    integrated_at: 2026-06-22
+    notes: "Polish pass: AI tells, tokens, spacing, motion"
+
+  # ── Commands ───────────────────────────────────────────────────────────────
+
+  - id: cpe-command-design-brief
+    type: command
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/commands/design-brief.md
+    synthesis_sources:
+      - open-design skill design-brief (Apache-2.0, commit 1cb7eae4)
+    integrated_at: 2026-06-22
+    notes: "Gera DESIGN.md + brief-preview.html a partir de brief em linguagem natural ou I-Lang"
+
+  - id: cpe-command-design-review
+    type: command
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/commands/design-review.md
+    synthesis_sources:
+      - open-design (Apache-2.0, commit 1cb7eae4)
+      - anthropic-frontend (Apache-2.0, commit 545162ba)
+    integrated_at: 2026-06-22
+    notes: "Orquestra ux-reviewer + design-polish agents. BLOCK/WARN/APPROVE verdict."
+
+  - id: cpe-command-design-system-create
+    type: command
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/commands/design-system-create.md
+    synthesis_sources:
+      - open-design (Apache-2.0, commit 1cb7eae4)
+    integrated_at: 2026-06-22
+    notes: "Gera tokens.css + 5 componentes (Button, Card, Input, Badge, Modal) + living style guide"
+
+  - id: cpe-command-polish
+    type: command
+    status: integrated
+    source: cpe
+    target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/commands/polish.md
+    synthesis_sources:
+      - open-design (impeccable-design-polish, Apache-2.0, commit 1cb7eae4)
+    integrated_at: 2026-06-22
+    notes: "Wrapper do design-polish agent. Commits por categoria de mudança."
+
+  # ── Planejado para fases futuras ───────────────────────────────────────────
+
+  - id: open-design-skill-apple-hig
     type: skill
     status: planned
     target_plugin: cpe-design
-    original_path: skills/brand/
-    original_url: https://github.com/nexu-io/open-design/tree/main/skills/brand
-    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
-    normalized: true
-    adaptation_note: "Curacao das skills de brand identity para cpe-design. Remover skills de ferramentas especificas do open-design (od CLI)."
-    integrated_at: null
+    original_path: skills/apple-hig/
+    original_url: https://github.com/nexu-io/open-design/tree/main/skills/apple-hig
+    source_commit: 1cb7eae4
+    notes: "14 agent skills para iOS/macOS/visionOS. Conteúdo via upstream raintree-technology."
 
-  - id: open-design-skill-cards
-    type: skill
-    status: planned
-    target_plugin: cpe-design
-    original_path: skills/cards/
-    original_url: https://github.com/nexu-io/open-design/tree/main/skills/cards
-    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
-    normalized: true
-    adaptation_note: "Cards e componentes visuais — alto valor para evitar UI generica."
-    integrated_at: null
-
-  - id: open-design-skill-editorial
-    type: skill
-    status: planned
-    target_plugin: cpe-design
-    original_path: skills/editorial/
-    original_url: https://github.com/nexu-io/open-design/tree/main/skills/editorial
-    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
-    normalized: true
-    adaptation_note: null
-    integrated_at: null
-
-  - id: open-design-skill-animation
-    type: skill
-    status: planned
-    target_plugin: cpe-design
-    original_path: skills/animation/
-    original_url: https://github.com/nexu-io/open-design/tree/main/skills/animation
-    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
-    normalized: true
-    adaptation_note: "Microinteracoes e animacoes — exige revisao para garantir compatibilidade fora do ecossistema od."
-    integrated_at: null
-
-  # --- Design systems (selecao curada) ---
-  - id: open-design-systems-core
+  - id: open-design-design-systems-curated
     type: design-system
     status: planned
     target_plugin: cpe-design
     original_path: design-systems/
     original_url: https://github.com/nexu-io/open-design/tree/main/design-systems
-    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
-    normalized: true
-    adaptation_note: "Curacao de 10-15 design systems mais distintos (minimal, modern, luxury, editorial, etc). Os 250+ originais incluem redundancias — relatorio de dedup necessario na Fase 6."
-    integrated_at: null
-
-  # --- Prompt templates ---
-  - id: open-design-prompt-templates
-    type: prompt-template
-    status: planned
-    target_plugin: cpe-design
-    original_path: prompt-templates/
-    original_url: https://github.com/nexu-io/open-design/tree/main/prompt-templates
-    source_commit: 1cb7eae45180295d16d0c7e54c5100b56efcae66
-    normalized: true
-    adaptation_note: "Selecao de templates de image/video prompts mais genericos (independentes do od CLI)."
-    integrated_at: null
+    source_commit: 1cb7eae4
+    notes: >
+      150 design systems disponíveis. Curar 10-15 mais distintos: minimal, modern,
+      luxury, editorial, brutalist, glassmorphism, neumorphism, material, fluent.
+      Relatório de dedup necessário — muitos têm características sobrepostas.
 
 notes: |
-  open-design e o repositorio mais rico em design mas tambem mais acoplado
-  ao ecossistema proprietario nexu-io/open-design. A curacao precisa remover
-  referencias ao od CLI e UI propria antes de integrar ao cpe-design.
-  Apache 2.0 exige atribuicao em toda distribuicao — incluir no cabecalho de cada arquivo.
-  Commit mais recente: 2026-06-22 (repo ativamente mantido).
+  open-design é o repositório mais rico em design mas acoplado ao ecossistema nexu-io.
+  Muitas skills são catálogos (não autocontidos) — estratégia: extrair conteúdo de skills
+  com conteúdo substancial, ignorar ponteiros vazios.
+  Fase 6 integrou: 4 skills (3 open-design + 1 CPE-synthesis), 3 agents (CPE-synthesis),
+  4 commands (CPE-synthesis). Total Phase 6: 11 recursos.
