@@ -1,178 +1,141 @@
-#!/usr/bin/env node
-// integrate.mjs — CPE Integration Pipeline
-// Pipeline: Source → Analyze → Classify → Extract → Normalize → Integrate → Report
+// integrate.mjs — CPE Integration Pipeline (core functions)
+// Exporta cmdStatus e cmdAnalyze para uso via cpe.mjs.
+// Usa js-yaml para parsing correto — sem regex frágil.
 //
-// Usage:
-//   node scripts/integrate.mjs analyze [source-id]   → lista recursos upstream
-//   node scripts/integrate.mjs status                → mostra estado de integração
-//   node scripts/integrate.mjs report                → gera CREDITS.md do integrated.yaml
-//
-// IMPORTANTE: este script é somente leitura + relatório. Nunca altera ~/.claude.
-// A extração real acontece em cada fase (3-6), aprovada manualmente.
+// Contrato: somente leitura. Nunca altera ~/.claude ou fontes upstream.
 
-import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { resolve, dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { homedir } from 'node:os';
+import yaml                                      from 'js-yaml';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
+import { resolve, dirname, join }                from 'node:path';
+import { fileURLToPath }                         from 'node:url';
+import { homedir }                               from 'node:os';
 
-// ── Utilitários de path (zero caminho absoluto hardcoded) ──────────────────
+// ── Paths (zero absoluto hardcoded) ───────────────────────────────────────
 
-const __dir = dirname(fileURLToPath(import.meta.url));
-const ROOT = resolve(__dir, '..');
-const SOURCES_DIR = join(ROOT, 'sources');
-const MANIFEST_PATH = join(SOURCES_DIR, 'manifest.yaml');
-const STATE_DIR = join(homedir(), '.cpe-state');
+const __dir      = dirname(fileURLToPath(import.meta.url));
+export const ROOT         = resolve(__dir, '..');
+export const SOURCES_DIR  = join(ROOT, 'sources');
+export const MANIFEST_PATH= join(SOURCES_DIR, 'manifest.yaml');
+export const STATE_DIR    = join(homedir(), '.cpe-state');
 
-function resolveStatePath(...parts) {
-  return join(STATE_DIR, ...parts);
+// ── Helpers ────────────────────────────────────────────────────────────────
+
+export function loadYaml(path) {
+  return yaml.load(readFileSync(path, 'utf8'));
 }
 
-// ── Parsers mínimos (sem dependências externas) ────────────────────────────
-
-/**
- * Parser YAML minimalista — apenas suporta o subconjunto usado neste projeto.
- * Para produção (Fase 8) substituir por js-yaml via package.json.
- */
-function parseYamlSimple(text) {
-  // Delegamos ao JSON parseável das partes estruturadas — abordagem pragmática.
-  // Na Fase 8, o cpe.mjs usará js-yaml como dependência real.
-  // Por ora, lê o YAML e extrai campos-chave com regex conservadoras.
-  const lines = text.split('\n');
-  const result = { sources: [] };
-  let current = null;
-
-  for (const raw of lines) {
-    const line = raw.trimEnd();
-    if (line.startsWith('#') || !line.trim()) continue;
-
-    const sourceMatch = line.match(/^  - id:\s+(.+)$/);
-    if (sourceMatch) {
-      current = { id: sourceMatch[1].trim() };
-      result.sources.push(current);
-      continue;
-    }
-    if (current) {
-      const fieldMatch = line.match(/^    (\w[\w_]+):\s+(.+)$/);
-      if (fieldMatch) {
-        const [, key, val] = fieldMatch;
-        current[key] = val.replace(/^["']|["']$/g, '').trim();
-      }
-    }
-  }
-  return result;
-}
-
-// ── Comandos ───────────────────────────────────────────────────────────────
-
-function cmdStatus() {
-  console.log('\n=== CPE Integration Status ===\n');
-
+export function loadManifest() {
   if (!existsSync(MANIFEST_PATH)) {
-    console.error('ERRO: sources/manifest.yaml não encontrado.');
+    console.error(`ERRO: ${MANIFEST_PATH} não encontrado.`);
     process.exit(1);
   }
+  return loadYaml(MANIFEST_PATH);
+}
 
-  const manifest = parseYamlSimple(readFileSync(MANIFEST_PATH, 'utf8'));
+export function loadIntegrated(sourceId) {
+  const path = join(SOURCES_DIR, sourceId, 'integrated.yaml');
+  if (!existsSync(path)) return null;
+  return loadYaml(path);
+}
 
-  for (const src of manifest.sources) {
-    const integratedPath = join(SOURCES_DIR, src.id, 'integrated.yaml');
-    const hasIntegrated = existsSync(integratedPath);
+export function allSourceIds() {
+  return readdirSync(SOURCES_DIR, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .map(d => d.name);
+}
+
+// ── Status ─────────────────────────────────────────────────────────────────
+
+export async function cmdStatus({ verbose = false } = {}) {
+  const manifest = loadManifest();
+  const sources  = manifest.sources || [];
+
+  console.log('\n=== CPE Integration Status ===\n');
+
+  let totalIntegrated = 0;
+  let totalStub       = 0;
+  let totalPlanned    = 0;
+
+  for (const src of sources) {
+    const integrated = loadIntegrated(src.id);
     const decisionsDir = join(SOURCES_DIR, src.id, 'decisions');
-    const decisionCount = existsSync(decisionsDir)
+    const decisions = existsSync(decisionsDir)
       ? readdirSync(decisionsDir).filter(f => f.endsWith('.md')).length
       : 0;
 
-    const commit = src.pinned_commit ? src.pinned_commit.substring(0, 8) : 'pendente';
-    const license = src.license || 'pendente';
-    const integrated = hasIntegrated ? '✔' : '✗';
+    const commit  = src.pinned_commit ? String(src.pinned_commit).substring(0, 8) : 'pendente';
+    const license = (src.license || 'pendente').padEnd(12);
+    const check   = integrated ? '✔' : '✗';
 
-    console.log(`  [${integrated}] ${src.id.padEnd(22)} commit=${commit}  license=${license.padEnd(12)}  decisions=${decisionCount}`);
-  }
+    if (integrated?.resources) {
+      const byStatus = countByStatus(integrated.resources);
+      totalIntegrated += byStatus.integrated || 0;
+      totalStub       += byStatus.stub       || 0;
+      totalPlanned    += byStatus.planned    || 0;
 
-  console.log('\nLegenda: [✔] integrated.yaml presente  [✗] ainda pendente\n');
-}
+      const summary = `integrated=${byStatus.integrated||0}  stub=${byStatus.stub||0}  planned=${byStatus.planned||0}`;
+      console.log(`  [${check}] ${String(src.id).padEnd(24)} ${summary}  commit=${commit}  license=${license}  decisions=${decisions}`);
 
-function cmdAnalyze(sourceId) {
-  if (!sourceId) {
-    console.error('Uso: integrate.mjs analyze <source-id>');
-    process.exit(1);
-  }
-
-  const integratedPath = join(SOURCES_DIR, sourceId, 'integrated.yaml');
-  if (!existsSync(integratedPath)) {
-    console.error(`ERRO: ${integratedPath} não encontrado.`);
-    process.exit(1);
-  }
-
-  const raw = readFileSync(integratedPath, 'utf8');
-  const lines = raw.split('\n');
-
-  // Extrai recursos por regex conservadora
-  const resources = [];
-  let current = null;
-  for (const line of lines) {
-    if (line.match(/^  - id:\s/)) {
-      current = { id: line.split('id:')[1].trim() };
-      resources.push(current);
-    } else if (current) {
-      for (const field of ['type', 'status', 'target_plugin']) {
-        const m = line.match(new RegExp(`^    ${field}:\\s+(.+)$`));
-        if (m) current[field] = m[1].trim();
+      if (verbose && integrated.resources) {
+        for (const r of integrated.resources) {
+          const icon = r.status === 'integrated' ? '  ✔' : r.status === 'stub' ? '  ~' : '  ·';
+          console.log(`       ${icon} [${r.type?.padEnd(10)}] ${r.id}`);
+        }
       }
+    } else {
+      console.log(`  [${check}] ${String(src.id).padEnd(24)} (sem integrated.yaml)  commit=${commit}  license=${license}`);
     }
   }
 
-  console.log(`\n=== Recursos planejados: ${sourceId} ===\n`);
-  for (const r of resources) {
-    const status = r.status || '?';
-    const type = (r.type || '?').padEnd(18);
-    const plugin = r.target_plugin || 'n/a';
-    console.log(`  ${status.padEnd(12)} ${type} → ${plugin}  [${r.id}]`);
-  }
-  console.log(`\n  Total: ${resources.length} recursos\n`);
+  console.log(`\n  Totais: integrated=${totalIntegrated}  stub=${totalStub}  planned=${totalPlanned}`);
+  console.log('  Legenda: [✔] integrated.yaml presente  [✗] pendente  ~ stub  · planned\n');
 }
 
-function cmdReport() {
-  console.log('\n=== Gerando CREDITS.md ===\n');
+// ── Analyze ────────────────────────────────────────────────────────────────
 
-  const manifest = parseYamlSimple(readFileSync(MANIFEST_PATH, 'utf8'));
-
-  let md = '# Créditos e Licenças\n\n';
-  md += '> Gerado automaticamente por `scripts/integrate.mjs report`.\n';
-  md += `> Última atualização: ${new Date().toISOString().split('T')[0]}\n\n`;
-  md += 'O CPE não substitui os projetos originais. Atua como camada de integração\n';
-  md += 'preservando autoria, licença e rastreabilidade de cada contribuição.\n\n';
-  md += '## Fontes (upstream)\n\n';
-  md += '| Fonte | Autor | Repositório | Licença | Commit |\n';
-  md += '|---|---|---|---|---|\n';
-
-  for (const src of manifest.sources) {
-    const commit = src.pinned_commit ? src.pinned_commit.substring(0, 8) : 'pendente';
-    const repo = src.repository || '—';
-    const repoLink = repo.startsWith('http') ? `[link](${repo})` : repo;
-    md += `| ${src.name || src.id} | ${src.author || '—'} | ${repoLink} | ${src.license || 'pendente'} | \`${commit}\` |\n`;
+export async function cmdAnalyze(sourceId, { verbose = false } = {}) {
+  if (!sourceId) {
+    console.error('Uso: cpe analyze <source-id>');
+    process.exit(1);
   }
 
-  md += '\n> Licença e commit de cada fonte são registrados em `sources/<id>/integrated.yaml`.\n';
+  const integrated = loadIntegrated(sourceId);
+  if (!integrated) {
+    console.error(`ERRO: sources/${sourceId}/integrated.yaml não encontrado.`);
+    process.exit(1);
+  }
 
-  const creditsPath = join(ROOT, 'CREDITS.md');
-  writeFileSync(creditsPath, md, 'utf8');
-  console.log(`  ✔ CREDITS.md gerado em ${creditsPath}\n`);
+  const resources = integrated.resources || [];
+  const byStatus  = countByStatus(resources);
+
+  console.log(`\n=== ${sourceId} — ${resources.length} recursos ===`);
+  console.log(`  integrated=${byStatus.integrated||0}  stub=${byStatus.stub||0}  planned=${byStatus.planned||0}`);
+  console.log(`  license=${integrated.license || '—'}  integrated_at=${integrated.integrated_at || '—'}\n`);
+
+  for (const status of ['integrated', 'stub', 'planned']) {
+    const group = resources.filter(r => r.status === status);
+    if (!group.length) continue;
+    const label = { integrated: '✔ INTEGRATED', stub: '~ STUB', planned: '· PLANNED' }[status];
+    console.log(`  ${label} (${group.length})`);
+    for (const r of group) {
+      const type   = String(r.type || '?').padEnd(12);
+      const plugin = r.target_plugin || r.cpe_path?.split('/')[1] || '—';
+      const path   = r.cpe_path || r.original_path || '';
+      console.log(`    ${type} → ${String(plugin).padEnd(18)} ${path}`);
+      if (verbose && r.adaptation) {
+        console.log(`             note: ${r.adaptation.trim().replace(/\n/g, ' ')}`);
+      }
+    }
+    console.log();
+  }
 }
 
-// ── Entry point ────────────────────────────────────────────────────────────
+// ── Internal helpers ───────────────────────────────────────────────────────
 
-const [,, cmd, ...args] = process.argv;
-
-switch (cmd) {
-  case 'status':  cmdStatus(); break;
-  case 'analyze': cmdAnalyze(args[0]); break;
-  case 'report':  cmdReport(); break;
-  default:
-    console.log('CPE Integration Pipeline\n');
-    console.log('Comandos:');
-    console.log('  status              → estado de integração de todas as fontes');
-    console.log('  analyze <source-id> → lista recursos planejados de uma fonte');
-    console.log('  report              → gera CREDITS.md a partir dos integrated.yaml');
-    console.log('\nEste script é somente leitura. Nunca altera ~/.claude.');
+function countByStatus(resources) {
+  return resources.reduce((acc, r) => {
+    const s = r.status || 'unknown';
+    acc[s] = (acc[s] || 0) + 1;
+    return acc;
+  }, {});
 }

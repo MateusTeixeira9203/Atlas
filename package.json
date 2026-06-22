@@ -1,0 +1,23 @@
+{
+  "name": "cpe",
+  "version": "0.8.0",
+  "description": "Claude Professional Environment — modular skill/agent/command framework for Claude Code",
+  "type": "module",
+  "bin": {
+    "cpe": "./scripts/cpe.mjs"
+  },
+  "scripts": {
+    "status":  "node scripts/cpe.mjs status",
+    "report":  "node scripts/cpe.mjs report",
+    "doctor":  "node scripts/cpe.mjs doctor",
+    "install-cpe": "node scripts/cpe.mjs install"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT",
+  "author": "Mateus Teixeira"
+}
