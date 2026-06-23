@@ -21,6 +21,7 @@ import { cmdDoctor }                from './doctor.mjs';
 import { cmdResearch }              from './research-engine.mjs';
 import { cmdUpdate }                from './update-engine.mjs';
 import { cmdInstall }               from './install.mjs';
+import { cmdReinstall }             from './reinstall.mjs';
 
 const [,, cmd, ...args] = process.argv;
 const flags    = new Set(args.filter(a => a.startsWith('--')));
@@ -37,6 +38,7 @@ Comandos:
   research [source-id]      → detecta atualizações de commit no upstream
   update [source-id]        → detecta stubs substituíveis por conteúdo real
   install [--apply]         → registra Atlas como marketplace (dry-run sem --apply)
+  reinstall [--apply]       → (re)instala todos os plugins via claude (dry-run sem --apply)
 
 Flags:
   --apply                   → aplicar mudanças (padrão: dry-run)
@@ -58,6 +60,7 @@ switch (cmd) {
   case 'research': await cmdResearch({ sourceFilter: positional[0] || null, json: flags.has('--json'), verbose: flags.has('--verbose') }); break;
   case 'update':   await cmdUpdate({ sourceFilter: positional[0] || null, json: flags.has('--json'), verbose: flags.has('--verbose') }); break;
   case 'install':  await cmdInstall({ apply: flags.has('--apply'), verbose: flags.has('--verbose') }); break;
+  case 'reinstall': await cmdReinstall({ apply: flags.has('--apply') }); break;
   default:
     console.log(HELP);
 }
