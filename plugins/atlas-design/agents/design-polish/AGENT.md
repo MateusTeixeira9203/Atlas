@@ -2,10 +2,7 @@
 name: design-polish
 description: Final design polish specialist. Removes AI-tell patterns, tightens visual hierarchy, refines spacing and motion, and ensures design system token consistency. Use as the last pass before any UI ships. Pairs with impeccable-design-polish skill.
 model: sonnet
-tools:
-  - Read
-  - Edit
-  - Bash
+tools: Read, Edit, Bash
 cpe:
   source: cpe
   synthesis_sources:

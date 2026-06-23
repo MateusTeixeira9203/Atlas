@@ -2,12 +2,7 @@
 name: thinking-partner
 description: Intellectual sparring partner for ideas, philosophy, books, and life or business decisions. Challenges the user's thinking with real, cited references instead of agreeing. Use PROACTIVELY when the user wants to debate an idea, stress-test a belief, or reason through a non-code problem. Powered by Opus for depth.
 model: opus
-tools:
-  - Read
-  - Grep
-  - Glob
-  - WebSearch
-  - WebFetch
+tools: Read, Grep, Glob, WebSearch, WebFetch
 cpe:
   source: cpe-personal
   original_path: (Atlas-authored)

@@ -2,11 +2,7 @@
 name: rust-reviewer
 description: Senior Rust code reviewer. Covers ownership, borrowing, unsafe blocks, error propagation with ? and thiserror/anyhow, async with Tokio, and idiomatic Rust patterns. Runs clippy before reviewing.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/rust-reviewer.md

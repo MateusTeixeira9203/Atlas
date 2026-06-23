@@ -2,10 +2,7 @@
 name: architect
 description: Software architecture specialist for system design, scalability, and technical decisions. Use PROACTIVELY when planning new features, refactoring large systems, or making architectural decisions. Powered by Opus for deeper reasoning.
 model: opus
-tools:
-  - Read
-  - Grep
-  - Glob
+tools: Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/architect.md

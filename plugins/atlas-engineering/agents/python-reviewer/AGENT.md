@@ -2,11 +2,7 @@
 name: python-reviewer
 description: Senior Python code reviewer. Specialized in security vulnerabilities, type hints, Pythonic patterns, and framework-specific checks (Django, FastAPI, Flask). Blocks on any CRITICAL or HIGH finding.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/python-reviewer.md

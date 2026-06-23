@@ -2,11 +2,7 @@
 name: java-reviewer
 description: Senior Java code reviewer. Covers null safety, stream API misuse, concurrency, exception handling, Spring patterns, and SOLID principles. Runs Checkstyle and SpotBugs before reviewing.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/java-reviewer.md

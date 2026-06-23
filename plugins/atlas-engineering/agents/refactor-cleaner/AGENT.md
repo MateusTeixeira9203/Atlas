@@ -2,12 +2,7 @@
 name: refactor-cleaner
 description: Dead code elimination and safe refactoring specialist. Uses knip, depcheck, ts-prune, and ESLint to identify and remove unused exports, files, and dependencies. Never removes during active feature development.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
-  - Edit
+tools: Bash, Read, Grep, Glob, Edit
 cpe:
   source: ecc
   original_path: agents/refactor-cleaner.md

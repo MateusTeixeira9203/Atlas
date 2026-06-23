@@ -2,11 +2,7 @@
 name: goal-planner
 description: Natural language to executable plan converter. Takes a high-level goal description and decomposes it into an A*-style ordered action plan with success criteria, dependencies, and agent assignments. Inspired by Ruflo goal planning (goal.ruv.io).
 model: opus
-tools:
-  - Read
-  - Bash
-  - Grep
-  - Glob
+tools: Read, Bash, Grep, Glob
 cpe:
   source: ruflo
   original_path: v3/goal_ui/ (goal planner patterns)

@@ -2,11 +2,7 @@
 name: go-reviewer
 description: Senior Go code reviewer. Covers error handling, goroutine safety, context propagation, interface design, and Go idioms. Runs go vet and staticcheck before reviewing.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/go-reviewer.md

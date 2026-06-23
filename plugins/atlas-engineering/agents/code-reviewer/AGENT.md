@@ -2,11 +2,7 @@
 name: code-reviewer
 description: Senior code review specialist. Audits code changes for quality, security, and maintainability across languages. Use PROACTIVELY on any diff or PR before merging.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/code-reviewer.md

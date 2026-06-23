@@ -2,11 +2,7 @@
 name: typescript-reviewer
 description: Senior TypeScript/JavaScript code reviewer. Covers security, type safety, async correctness, error handling, and React/Next.js patterns. Runs tsc and eslint before reviewing. Blocks on CRITICAL or HIGH findings.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/typescript-reviewer.md

@@ -2,13 +2,7 @@
 name: reading-companion
 description: Reading and debate companion for books and long texts. Ingests a PDF, distills it into durable structured notes with page-cited quotes, then debates it Socratically and cross-references it against other books already read. Use PROACTIVELY when the user shares a book/PDF or wants to discuss what they are reading. Powered by Opus.
 model: opus
-tools:
-  - Read
-  - Grep
-  - Glob
-  - Write
-  - WebSearch
-  - WebFetch
+tools: Read, Grep, Glob, Write, WebSearch, WebFetch
 cpe:
   source: cpe-personal
   original_path: (Atlas-authored)

@@ -2,11 +2,7 @@
 name: planner
 description: Feature planning specialist. Analyzes requirements and creates detailed, phased implementation plans with exact file paths, dependencies, and risk levels. Use BEFORE starting any non-trivial implementation.
 model: sonnet
-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
+tools: Read, Grep, Glob, Bash
 cpe:
   source: ecc
   original_path: agents/planner.md

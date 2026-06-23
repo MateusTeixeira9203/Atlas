@@ -2,11 +2,7 @@
 name: swarm-coordinator
 description: Multi-agent swarm coordinator. Decomposes complex tasks into parallel sub-tasks, assigns them to specialized agents, collects results, and synthesizes a final output. Inspired by Ruflo swarm orchestration patterns.
 model: opus
-tools:
-  - Read
-  - Bash
-  - Grep
-  - Glob
+tools: Read, Bash, Grep, Glob
 cpe:
   source: ruflo
   original_path: .agents/ (orchestration patterns)

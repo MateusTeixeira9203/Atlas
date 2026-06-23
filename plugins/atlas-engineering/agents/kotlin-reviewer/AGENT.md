@@ -2,11 +2,7 @@
 name: kotlin-reviewer
 description: Senior Kotlin code reviewer. Covers null safety, coroutines, Flow, idiomatic Kotlin patterns, and Android-specific concerns (lifecycle, context leaks). Runs ktlint and detekt before reviewing.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/kotlin-reviewer.md

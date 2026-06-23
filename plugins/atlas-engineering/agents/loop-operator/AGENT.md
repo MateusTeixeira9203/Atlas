@@ -2,12 +2,7 @@
 name: loop-operator
 description: Autonomous loop supervisor. Manages long-running agent processes with safety checkpoints, scope reduction on degradation, and human escalation triggers. Use when running multi-step autonomous tasks.
 model: sonnet
-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
-  - Edit
+tools: Read, Grep, Glob, Bash, Edit
 cpe:
   source: ecc
   original_path: agents/loop-operator.md

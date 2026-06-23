@@ -2,11 +2,7 @@
 name: performance-optimizer
 description: Performance profiling and optimization specialist. Identifies bottlenecks in speed, memory, and bundle size. Measures before optimizing — never guesses. Use when LCP > 2.5s, p99 API > 500ms, or bundle > 200KB gzipped.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/performance-optimizer.md

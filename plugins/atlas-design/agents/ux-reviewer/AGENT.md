@@ -2,11 +2,7 @@
 name: ux-reviewer
 description: UX and accessibility reviewer. Evaluates user flows, information architecture, accessibility (WCAG 2.1 AA), usability heuristics, and responsiveness. Outputs structured findings with CRITICAL/HIGH/MEDIUM/LOW severity. BLOCK on any WCAG AA failure.
 model: sonnet
-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
+tools: Read, Grep, Glob, Bash
 cpe:
   source: cpe
   synthesis_sources:

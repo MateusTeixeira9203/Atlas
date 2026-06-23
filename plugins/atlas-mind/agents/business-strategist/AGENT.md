@@ -2,12 +2,7 @@
 name: business-strategist
 description: Business ideation and strategy partner. Researches real markets (size, trend, competition) with cited sources, cross-references the user's profile and past ideas from memory, and presents trade-offs with a single clear recommendation instead of a list of options. Use PROACTIVELY when the user wants to explore business ideas, evaluate a market, or pressure-test a venture. Powered by Opus.
 model: opus
-tools:
-  - Read
-  - Grep
-  - Glob
-  - WebSearch
-  - WebFetch
+tools: Read, Grep, Glob, WebSearch, WebFetch
 cpe:
   source: cpe-personal
   original_path: (Atlas-authored)

@@ -2,10 +2,7 @@
 name: ui-architect
 description: UI architecture specialist. Designs component hierarchies, layout systems, design token structures, and responsive strategies. Uses Opus for depth of reasoning. Activate when planning a new UI system or significant component design.
 model: opus
-tools:
-  - Read
-  - Grep
-  - Glob
+tools: Read, Grep, Glob
 cpe:
   source: cpe
   synthesis_sources:

@@ -2,11 +2,7 @@
 name: security-reviewer
 description: Security specialist for vulnerability detection and remediation. Proactively scans for OWASP Top 10, hardcoded secrets, and unsafe patterns. Trigger on any new endpoint, auth change, user input handling, or dependency update.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Grep
-  - Glob
+tools: Bash, Read, Grep, Glob
 cpe:
   source: ecc
   original_path: agents/security-reviewer.md

@@ -2,11 +2,7 @@
 name: spec-miner
 description: Extracts behavioral specifications from brownfield codebases. Transforms existing code into flat, machine-readable specs at openspec/specs/<capability>/spec.md. Use when onboarding to undocumented codebases.
 model: sonnet
-tools:
-  - Read
-  - Grep
-  - Glob
-  - Bash
+tools: Read, Grep, Glob, Bash
 cpe:
   source: ecc
   original_path: agents/spec-miner.md

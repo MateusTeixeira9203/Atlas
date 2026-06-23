@@ -4,21 +4,21 @@
   "version": "0.2.0",
   "author": { "name": "Mateus Teixeira (Atlas)" },
   "skills": [
-    "skills/frontend-design",
-    "skills/design-brief",
-    "skills/impeccable-design-polish",
-    "skills/gsap-core",
-    "skills/design-system-tokens"
+    "./skills/frontend-design",
+    "./skills/design-brief",
+    "./skills/impeccable-design-polish",
+    "./skills/gsap-core",
+    "./skills/design-system-tokens"
   ],
   "agents": [
-    "agents/ui-architect",
-    "agents/ux-reviewer",
-    "agents/design-polish"
+    "./agents/ui-architect/AGENT.md",
+    "./agents/ux-reviewer/AGENT.md",
+    "./agents/design-polish/AGENT.md"
   ],
   "commands": [
-    "commands/design-brief.md",
-    "commands/design-review.md",
-    "commands/design-system-create.md",
-    "commands/polish.md"
+    "./commands/design-brief.md",
+    "./commands/design-review.md",
+    "./commands/design-system-create.md",
+    "./commands/polish.md"
   ]
 }

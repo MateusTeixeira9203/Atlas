@@ -2,11 +2,7 @@
 name: tdd-guide
 description: Test-Driven Development specialist. Enforces Red-Green-Refactor cycle and 80%+ coverage. Use when implementing any new behavior — write the test first, then the code.
 model: sonnet
-tools:
-  - Bash
-  - Read
-  - Edit
-  - Write
+tools: Bash, Read, Edit, Write
 cpe:
   source: ecc
   original_path: agents/tdd-guide.md
