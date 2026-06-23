@@ -11,6 +11,7 @@ preservando autoria, licença e rastreabilidade de cada contribuição.
 
 | Fonte | Autor | Repositório | Licença | Commit |
 |---|---|---|---|---|
+| **CPE Personal (Authored)** | Mateus Teixeira | [link](https://github.com/MateusTeixeira9203/Skills_setup) | none | `cpe-auth` |
 | **Andrej Karpathy Skills** | multica-ai | [link](https://github.com/multica-ai/andrej-karpathy-skills) | none | `2c606141` |
 | **Open Design** | nexu-io | [link](https://github.com/nexu-io/open-design) | Apache-2.0 | `1cb7eae4` |
 | **Ruflo** | ruvnet | [link](https://github.com/ruvnet/ruflo) | MIT | `9c28fe03` |
@@ -21,6 +22,21 @@ preservando autoria, licença e rastreabilidade de cada contribuição.
 ---
 
 ## Recursos por Fonte
+
+### CPE Personal (Authored)
+
+Licença: none · Commit: cpe-auth
+
+- **cpe-personal-skill-next-app-router** — `plugins/cpe-engineering/skills/next-app-router/SKILL.md`
+- **cpe-personal-skill-supabase-patterns** — `plugins/cpe-engineering/skills/supabase-patterns/SKILL.md`
+- **cpe-personal-skill-react-patterns** — `plugins/cpe-engineering/skills/react-patterns/SKILL.md`
+- **cpe-personal-skill-tailwind-shadcn** — `plugins/cpe-engineering/skills/tailwind-shadcn/SKILL.md`
+- **cpe-personal-skill-zod-validation** — `plugins/cpe-engineering/skills/zod-validation/SKILL.md`
+- **cpe-personal-skill-saas-patterns** — `plugins/cpe-engineering/skills/saas-patterns/SKILL.md`
+- **cpe-personal-skill-ai-integration** — `plugins/cpe-engineering/skills/ai-integration/SKILL.md`
+- **cpe-personal-skill-error-handling** — `plugins/cpe-engineering/skills/error-handling/SKILL.md`
+- **cpe-personal-cmd-next-review** — `plugins/cpe-engineering/commands/next-review.md`
+- **cpe-personal-cmd-handoff-generator** — `plugins/cpe-engineering/commands/handoff-generator.md`
 
 ### Andrej Karpathy Skills
 

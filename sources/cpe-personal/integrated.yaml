@@ -1,0 +1,106 @@
+source_id: cpe-personal
+schema_version: 1
+license: none
+status_note: Skills e commands CPE-authored para o stack pessoal de Mateus Teixeira (Next.js App Router, Supabase, Vercel AI SDK, shadcn/ui, Zod, SaaS patterns, error handling).
+integrated_at: 2026-06-22
+
+resources:
+  - id: cpe-personal-skill-next-app-router
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/next-app-router/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Baseado em vercel/next-learn e vercel/nextjs-subscription-payments. Server Actions com useActionState, Route Handlers, Middleware, SSR patterns.
+
+  - id: cpe-personal-skill-supabase-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/supabase-patterns/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Baseado em supabase/supabase e vercel/nextjs-subscription-payments. SSR auth, createServerClient, RLS, multi-tenant, Edge Functions.
+
+  - id: cpe-personal-skill-react-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/react-patterns/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Custom hooks, Context+useReducer, performance (quando usar memo/useMemo/useCallback), compound components, Server vs Client boundary.
+
+  - id: cpe-personal-skill-tailwind-shadcn
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/tailwind-shadcn/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: cn(), cva(), CSS variables, dark mode, Controller+RHF+shadcn, useFieldArray com field.id.
+
+  - id: cpe-personal-skill-zod-validation
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/zod-validation/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: safeParse + flatten().fieldErrors, z.infer, omit/pick/extend, zodResolver, validação de env vars, schemas complexos.
+
+  - id: cpe-personal-skill-saas-patterns
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/saas-patterns/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Baseado em vercel/nextjs-subscription-payments. Multi-tenant, Stripe, getURL helper, toast redirects, invite flow, feature flags.
+
+  - id: cpe-personal-skill-ai-integration
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/ai-integration/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Baseado em ai-sdk.dev 2026. UIMessage, convertToModelMessages, tool() com inputSchema, stopWhen, useChat com message.parts, generateObject, rate limiting.
+
+  - id: cpe-personal-skill-error-handling
+    type: skill
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/error-handling/SKILL.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: error.tsx hierarchy, notFound()/redirect() fora de try/catch, Sentry setup, logs estruturados, mensagens de erro para usuário.
+
+  - id: cpe-personal-cmd-next-review
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/commands/next-review.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Checklist de review Next.js — Server/Client boundary, Server Actions, Route Handlers, data fetching, Middleware, error handling, performance.
+
+  - id: cpe-personal-cmd-handoff-generator
+    type: command
+    status: integrated
+    target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/commands/handoff-generator.md
+    original_path: (CPE-authored)
+    source_commit: cpe-authored
+    integrated_at: 2026-06-22
+    adaptation: Gerador de handoff de sessão — diff, próximos passos, dívidas técnicas, como testar, contexto para próxima sessão.

@@ -6,11 +6,11 @@
 
 | | |
 |---|---|
-| Total de recursos | 107 |
-| Integrados (full) | 57 |
+| Total de recursos | 117 |
+| Integrados (full) | 67 |
 | Integrados (stub) | 32 |
 | Planejados        | 4 |
-| Progresso         | 83% (89/107) |
+| Progresso         | 85% (99/117) |
 
 ## Por Plugin
 
@@ -18,7 +18,7 @@
 |---|---|
 | cpe-core | 1 |
 | cpe-design | 12 |
-| cpe-engineering | 64 |
+| cpe-engineering | 74 |
 | cpe-workflows | 11 |
 | templates | 1 |
 
@@ -27,8 +27,8 @@
 | Tipo | Recursos |
 |---|---|
 | agent | 20 |
-| command | 40 |
-| skill | 28 |
+| command | 42 |
+| skill | 36 |
 | template | 1 |
 
 ## Stubs (pendentes de substituição)
