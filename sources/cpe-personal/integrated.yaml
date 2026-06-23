@@ -114,3 +114,23 @@ resources:
     source_commit: atlas-authored
     integrated_at: 2026-06-23
     adaptation: Atlas-authored — persona-núcleo da metade intelectual; par para debate de ideias com referências reais e antídoto contra bajulação.
+
+  - id: atlas-agent-reading-companion
+    type: agent
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/agents/reading-companion/AGENT.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — leitura e debate de livros; PDF destilado em notas com citações de página, debate socrático e cruzamento entre leituras.
+
+  - id: atlas-agent-business-strategist
+    type: agent
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/agents/business-strategist/AGENT.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — ideação e estratégia de negócio com pesquisa de mercado real, trade-offs explícitos e recomendação única.
