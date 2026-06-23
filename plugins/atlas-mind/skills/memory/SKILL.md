@@ -15,21 +15,31 @@ aqui está o **protocolo operacional**.
 
 ## Ler antes de agir
 
-Antes de debater, planejar ou recomendar, **leia a memória relevante** — para
-não repetir o que já foi concluído e para cruzar com o histórico do usuário:
+Antes de debater, planejar ou recomendar, **leia a memória pessoal relevante**
+(localização na seção abaixo) — para não repetir o que já foi concluído e para
+cruzar com o histórico do usuário:
 
-- `memory/discussions/` — debates e conclusões anteriores
-- `memory/readings/` — livros já lidos
-- `memory/projects/` — estado de ideias e projetos
+- `discussions/` — debates e conclusões anteriores
+- `readings/` — livros já lidos
+- `projects/` — estado de ideias e projetos
 
 ## As duas camadas (escopo)
 
 ```
-PESSOAL (global)   → memory/ no repo do Atlas → carregada SEMPRE
-PROJETO (local)    → dentro de cada projeto   → só naquele projeto
+PESSOAL (global)   → $ATLAS_HOME/memory/      → carregada SEMPRE, em todo projeto
+PROJETO (local)    → <projeto>/.atlas/memory/ → só naquele projeto
 ```
 
-A memória de um projeto **nunca** vaza para outro — está fisicamente noutro repo.
+`ATLAS_HOME` é uma variável de ambiente que aponta para o repositório do Atlas —
+o lar do cérebro. Ao trabalhar **dentro de outro projeto** (ex.: odonto.ia):
+
+1. Resolva `ATLAS_HOME` (ex.: `echo $ATLAS_HOME`).
+2. Leia a memória **pessoal** de `$ATLAS_HOME/memory/` — é a mesma em todo projeto.
+3. Leia a memória **do projeto** de `./.atlas/memory/`, se existir — local àquele projeto.
+
+Quando `ATLAS_HOME` não está definido, você já está no próprio repo do Atlas: a
+memória pessoal é o `memory/` local. A memória de um projeto **nunca** vaza para
+outro — vivem em pastas separadas, por design.
 
 ## Decidir o que persistir
 

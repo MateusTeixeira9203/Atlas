@@ -4,6 +4,12 @@
 > seu jeito de pensar, livros, princípios e preferências. É carregada **sempre**,
 > em qualquer projeto. A memória **de projeto** vive dentro de cada projeto, não
 > aqui. Ver `docs/atlas-architecture.md` §4.1.
+>
+> **Ponte (`ATLAS_HOME`):** este repositório é o lar da memória pessoal. A
+> variável de ambiente `ATLAS_HOME` aponta para ele, então qualquer projeto lê a
+> memória pessoal de `$ATLAS_HOME/memory/` sem caminho absoluto chumbado. A
+> memória local do projeto fica em `<projeto>/.atlas/memory/`. Detalhes na skill
+> `memory`.
 
 ---
 
