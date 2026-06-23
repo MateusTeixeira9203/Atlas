@@ -14,12 +14,13 @@ license_decision: reference-with-attribution
 resources:
   - id: karpathy-guidelines-skill
     type: skill
-    status: planned
+    status: integrated
     target_plugin: cpe-engineering
+    cpe_path: plugins/cpe-engineering/skills/karpathy-guidelines/SKILL.md
     original_path: skills/karpathy-guidelines/SKILL.md
     original_url: https://github.com/multica-ai/andrej-karpathy-skills/blob/main/skills/karpathy-guidelines/SKILL.md
     source_commit: 2c606141936f1eeef17fa3043a72095b4765b9c2
-    normalized: false
+    normalized: true
     adaptation_note: "Conteúdo original preservado; cabeçalho CPE adicionado no frontmatter."
     integrated_at: 2026-06-22
 

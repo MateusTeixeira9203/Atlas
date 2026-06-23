@@ -1,8 +1,14 @@
 ﻿---
 name: github-ops
 description: GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD operations, release management, and security monitoring using the gh CLI. Use when the user wants to manage GitHub issues, PRs, CI status, releases, contributors, stale items, or any GitHub operational task beyond simple git commands.
-metadata:
-  origin: ECC
+cpe:
+  source: ecc
+  original_path: skills/github-ops/SKILL.md
+  original_url: https://github.com/affaan-m/ECC/tree/71d22d0a77b7e0684f4e51cba03749b788993cdb/skills/github-ops/SKILL.md
+  source_commit: 71d22d0a
+  license: MIT
+  integrated_at: 2026-06-22
+  adaptation: Reformatado para padrão CPE SKILL.md; conteúdo preservado via WebFetch summary
 ---
 
 # GitHub Operations

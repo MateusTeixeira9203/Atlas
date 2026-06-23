@@ -1,8 +1,14 @@
 ﻿---
 name: django-patterns
 description: Django architecture patterns, REST API design with DRF, ORM best practices, caching, signals, middleware, and production-grade Django apps.
-metadata:
-  origin: ECC
+cpe:
+  source: ecc
+  original_path: skills/django-patterns/SKILL.md
+  original_url: https://github.com/affaan-m/ECC/tree/71d22d0a77b7e0684f4e51cba03749b788993cdb/skills/django-patterns/SKILL.md
+  source_commit: 71d22d0a
+  license: MIT
+  integrated_at: 2026-06-22
+  adaptation: Reformatado para padrão CPE SKILL.md; conteúdo preservado via WebFetch summary
 ---
 
 # Django Development Patterns

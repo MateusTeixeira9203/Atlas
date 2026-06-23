@@ -1,8 +1,14 @@
 ﻿---
 name: django-security
 description: Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations.
-metadata:
-  origin: ECC
+cpe:
+  source: ecc
+  original_path: skills/django-security/SKILL.md
+  original_url: https://github.com/affaan-m/ECC/tree/71d22d0a77b7e0684f4e51cba03749b788993cdb/skills/django-security/SKILL.md
+  source_commit: 71d22d0a
+  license: MIT
+  integrated_at: 2026-06-22
+  adaptation: Reformatado para padrão CPE SKILL.md; conteúdo preservado via WebFetch summary
 ---
 
 # Django Security Best Practices

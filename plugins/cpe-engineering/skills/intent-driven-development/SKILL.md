@@ -1,6 +1,14 @@
 ﻿---
 name: intent-driven-development
 description: Turn ambiguous or high-impact product and engineering changes into scoped, verifiable acceptance criteria before or alongside implementation. Use when a user asks to clarify a feature, define acceptance criteria, de-risk a security/data/migration/integration change, prepare implementation requirements for another agent, or make a complex request testable. Do not trigger for trivial edits, straightforward fixes, active debugging, code review, or implementation requests whose acceptance conditions are already clear unless the user explicitly invokes this skill.
+cpe:
+  source: ecc
+  original_path: skills/intent-driven-development/SKILL.md
+  original_url: https://github.com/affaan-m/ECC/tree/71d22d0a77b7e0684f4e51cba03749b788993cdb/skills/intent-driven-development/SKILL.md
+  source_commit: 71d22d0a
+  license: MIT
+  integrated_at: 2026-06-22
+  adaptation: Reformatado para padrão CPE SKILL.md; conteúdo preservado via WebFetch summary
 ---
 
 # Intent-Driven Development

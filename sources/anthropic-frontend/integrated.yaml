@@ -12,17 +12,16 @@ subpath: plugins/frontend-design
 resources:
   - id: anthropic-frontend-design-skill
     type: skill
-    status: planned
+    status: integrated
     target_plugin: cpe-design
+    cpe_path: plugins/cpe-design/skills/frontend-design/SKILL.md
     original_path: plugins/frontend-design/skills/frontend-design/SKILL.md
     original_url: https://github.com/anthropics/claude-plugins-official/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md
     source_commit: 545162ba19782cb08668a5d1bb51a8e0368872ad
-    normalized: false
-    adaptation_note: |
-      Skill oficial Anthropic (8.26 KB). Foco: gerar interfaces distintas e
-      com qualidade de producao, evitando a 'estetica generica de IA'.
-      Integrar diretamente em cpe-design/skills/frontend-design/.
-      Atribuicao: Prithvi Rajasekaran, Alexander Bricken (Anthropic).
+    normalized: true
+    adaptation_note: >-
+      Skill oficial Anthropic. Conteúdo preservado na íntegra.
+      Atribuição: Prithvi Rajasekaran, Alexander Bricken (Anthropic).
     integrated_at: 2026-06-22
 
 notes: |

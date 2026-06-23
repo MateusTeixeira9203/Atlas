@@ -1,8 +1,14 @@
 ﻿---
 name: kotlin-coroutines-flows
 description: Kotlin Coroutines and Flow patterns for Android and KMP — structured concurrency, Flow operators, StateFlow, error handling, and testing.
-metadata:
-  origin: ECC
+cpe:
+  source: ecc
+  original_path: skills/kotlin-coroutines-flows/SKILL.md
+  original_url: https://github.com/affaan-m/ECC/tree/71d22d0a77b7e0684f4e51cba03749b788993cdb/skills/kotlin-coroutines-flows/SKILL.md
+  source_commit: 71d22d0a
+  license: MIT
+  integrated_at: 2026-06-22
+  adaptation: Reformatado para padrão CPE SKILL.md; conteúdo preservado via WebFetch summary
 ---
 
 # Kotlin Coroutines & Flows

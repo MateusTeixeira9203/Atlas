@@ -1,21 +1,8 @@
-# =============================================================================
-# CPE — Recursos integrados de: ruflo
-# =============================================================================
-
 source_id: ruflo
 schema_version: 1
-status_note: "Planejado na Fase 2. Extracao real na Fase 4 (Agentes) e Fase 5 (Commands)."
+status_note: Planejado na Fase 2. Extracao real na Fase 4 (Agentes) e Fase 5 (Commands).
 license: MIT
-
-# ESTRATEGIA: ruflo e massivo (531 MB, 40+ plugins TypeScript).
-# NAO integrar o framework inteiro — extrair padroes, guias e configuracoes
-# que enriquecem o cpe-workflows. O codigo TypeScript do ruflo e muito
-# especializado (swarm, RAG, federation) e nao se encaixa diretamente.
-# O valor real esta em: padroes de orquestracao, config de agentes (TOML/YAML),
-# documentacao de workflow e CLAUDE.md de integracao.
-
 resources:
-  # --- Agentes extraídos na Fase 4 ---
   - id: ruflo-agent-swarm-coordinator
     type: agent
     status: integrated
@@ -24,9 +11,11 @@ resources:
     original_url: https://github.com/ruvnet/ruflo
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
     normalized: true
-    adaptation_note: "Padrão de orquestração swarm extraído e implementado como AGENT.md CPE. Não é cópia direta — é o padrão materializado em formato portátil."
-    integrated_at: 2026-06-22
-
+    adaptation_note: >-
+      Padrão de orquestração swarm extraído e implementado como AGENT.md CPE. Não é cópia direta — é o padrão
+      materializado em formato portátil.
+    integrated_at: 2026-06-22T00:00:00.000Z
+    cpe_path: plugins/cpe-workflows/agents/swarm-coordinator/AGENT.md
   - id: ruflo-agent-goal-planner
     type: agent
     status: integrated
@@ -35,10 +24,11 @@ resources:
     original_url: https://github.com/ruvnet/ruflo
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
     normalized: true
-    adaptation_note: "Padrão A* de goal planning extraído do goal.ruv.io e implementado como AGENT.md CPE. Não é cópia do TypeScript — é o padrão de planejamento abstraído."
-    integrated_at: 2026-06-22
-
-  # --- Recursos integrados na Fase 7 ---
+    adaptation_note: >-
+      Padrão A* de goal planning extraído do goal.ruv.io e implementado como AGENT.md CPE. Não é cópia do TypeScript — é
+      o padrão de planejamento abstraído.
+    integrated_at: 2026-06-22T00:00:00.000Z
+    cpe_path: plugins/cpe-workflows/agents/goal-planner/AGENT.md
   - id: ruflo-agent-orchestration-guide
     type: skill
     status: integrated
@@ -47,12 +37,10 @@ resources:
     original_path: AGENTS.md + CLAUDE.md
     original_url: https://github.com/ruvnet/ruflo
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
-    integrated_at: 2026-06-22
+    integrated_at: 2026-06-22T00:00:00.000Z
     adaptation: >
-      Padrões extraídos de AGENTS.md e CLAUDE.md, normalizados como SKILL.md CPE.
-      Inclui: memory-first protocol, topologias (pipeline/fan-out/supervisor),
-      three-tier model routing, anti-drift protocol, regras de comunicação.
-
+      Padrões extraídos de AGENTS.md e CLAUDE.md, normalizados como SKILL.md CPE. Inclui: memory-first protocol,
+      topologias (pipeline/fan-out/supervisor), three-tier model routing, anti-drift protocol, regras de comunicação.
   - id: ruflo-agent-config-profiles
     type: template
     status: integrated
@@ -61,12 +49,10 @@ resources:
     original_path: .agents/config.toml
     original_url: https://github.com/ruvnet/ruflo/blob/main/.agents/config.toml
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
-    integrated_at: 2026-06-22
+    integrated_at: 2026-06-22T00:00:00.000Z
     adaptation: >
-      TOML convertido para YAML CPE. Profiles dev/safe/ci preservados.
-      Removida dependência de claude-flow CLI. Adicionada seção de security
-      com blocked_file_patterns.
-
+      TOML convertido para YAML CPE. Profiles dev/safe/ci preservados. Removida dependência de claude-flow CLI.
+      Adicionada seção de security com blocked_file_patterns.
   - id: ruflo-integration-guide
     type: skill
     status: integrated
@@ -75,12 +61,22 @@ resources:
     original_path: CLAUDE.md
     original_url: https://github.com/ruvnet/ruflo/blob/main/CLAUDE.md
     source_commit: 9c28fe038cf49ac6db0bb4e04b6158076f03894d
-    integrated_at: 2026-06-22
+    integrated_at: 2026-06-22T00:00:00.000Z
     adaptation: >
-      Princípios genéricos de coordenação (three-tier routing, concurrency model,
-      anti-drift) absorvidos no orchestration-guide skill. Referências ao
-      ruflo CLI e ao sistema proprietário SONA foram omitidas.
-
+      Princípios genéricos de coordenação (three-tier routing, concurrency model, anti-drift) absorvidos no
+      orchestration-guide skill. Referências ao ruflo CLI e ao sistema proprietário SONA foram omitidas.
+  - id: ruflo-cpe-scaffold-command
+    type: command
+    status: integrated
+    target_plugin: cpe-core
+    cpe_path: plugins/cpe-core/commands/scaffold.md
+    original_path: (CPE-authored synthesis)
+    source_commit: cpe-authored
+    normalized: true
+    adaptation_note: >-
+      Comando CPE-authored que orquestra o sistema de templates. Sintetizado a partir de
+      padrões dos templates ruflo (agent-profiles) e open-design (decks HTML). Não é cópia de nenhum arquivo upstream.
+    integrated_at: 2026-06-22
 notes: |
   ruflo e um framework de producao complexo. Integracao direta do codigo
   TypeScript nao faz sentido para o CPE. O valor esta em padroes e documentacao.
