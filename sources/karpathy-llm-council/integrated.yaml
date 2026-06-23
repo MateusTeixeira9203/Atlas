@@ -1,0 +1,31 @@
+# =============================================================================
+# Atlas — Recursos integrados de: karpathy/llm-council
+# =============================================================================
+
+source_id: karpathy-llm-council
+schema_version: 1
+status_note: "Conceito de deliberacao multi-perspectiva (3 estagios) adaptado para personas nativas do Atlas."
+
+# ATENCAO DE LICENCA: repositorio sem licenca declarada ("provided as is").
+# Decisao: adaptar apenas o CONCEITO (estagios de deliberacao) com atribuicao
+# clara. NAO copiar o codigo original (Python/React/OpenRouter).
+license_decision: concept-adaptation-with-attribution
+
+resources:
+  - id: atlas-skill-council
+    type: skill
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/skills/council/SKILL.md
+    original_path: backend/council.py (conceito, nao codigo)
+    original_url: https://github.com/karpathy/llm-council
+    source_commit: 92e1fccb1bdcf1bab7221aa9ed90f9dc72529131
+    normalized: true
+    adaptation: "3 estagios (pareceres independentes -> revisao cruzada anonimizada -> sintese do presidente) adaptados para personas do Atlas (subagents). Nenhum codigo copiado; apenas o padrao de deliberacao."
+    integrated_at: 2026-06-23
+
+notes: |
+  Karpathy criou o llm-council para ler livros junto com LLMs — mesmo caso de
+  uso da reading-companion do Atlas. O valor portado e o processo: opinioes
+  independentes, revisao cruzada ANONIMIZADA (antidoto contra bajulacao) e
+  sintese final. A anonimizacao do estagio 2 e o detalhe de design mais valioso.

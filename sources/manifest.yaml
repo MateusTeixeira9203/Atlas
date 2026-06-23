@@ -94,3 +94,15 @@ sources:
     license_note: "Plugin oficial Anthropic. Redistribuicao permitida com atribuicao (Apache 2.0)."
     last_sync: 2026-06-22
     integrated_yaml: sources/anthropic-frontend/integrated.yaml
+
+  - id: karpathy-llm-council
+    name: LLM Council (Andrej Karpathy)
+    repository: https://github.com/karpathy/llm-council
+    author: Andrej Karpathy
+    responsible_for: [deliberation, multi-perspective, debate]
+    pinned_commit: 92e1fccb1bdcf1bab7221aa9ed90f9dc72529131
+    pinned_date: 2026-06-23
+    license: none
+    license_note: "Repositorio sem licenca declarada ('provided as is'). Decisao: adaptar apenas o CONCEITO (deliberacao em 3 estagios) com atribuicao; NAO copiar codigo (Python/React/OpenRouter). Justificativa: pedido do usuario para skill 'convocar o conselho'."
+    last_sync: 2026-06-23
+    integrated_yaml: sources/karpathy-llm-council/integrated.yaml

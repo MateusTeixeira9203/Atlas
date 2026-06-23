@@ -6,16 +6,17 @@
 
 | | |
 |---|---|
-| Total de recursos | 117 |
-| Integrados (full) | 67 |
+| Total de recursos | 125 |
+| Integrados (full) | 75 |
 | Integrados (stub) | 32 |
 | Planejados        | 4 |
-| Progresso         | 85% (99/117) |
+| Progresso         | 86% (107/125) |
 
 ## Por Plugin
 
 | Plugin | Recursos |
 |---|---|
+| atlas-mind | 8 |
 | cpe-core | 1 |
 | cpe-design | 12 |
 | cpe-engineering | 74 |
@@ -26,9 +27,9 @@
 
 | Tipo | Recursos |
 |---|---|
-| agent | 20 |
+| agent | 23 |
 | command | 42 |
-| skill | 36 |
+| skill | 41 |
 | template | 1 |
 
 ## Stubs (pendentes de substituição)

@@ -18,6 +18,7 @@ preservando autoria, licença e rastreabilidade de cada contribuição.
 | **ECC (Everything Claude Code)** | affaan-m | [link](https://github.com/affaan-m/ECC) | MIT | `71d22d0a` |
 | **Superpowers** | obra (Jesse Vincent) | [link](https://github.com/obra/superpowers) | MIT | `896224c4` |
 | **Anthropic Frontend Design (oficial)** | Anthropic (Prithvi Rajasekaran, Alexander Bricken) | [link](https://github.com/anthropics/claude-plugins-official) | Apache-2.0 | `545162ba` |
+| **LLM Council (Andrej Karpathy)** | Andrej Karpathy | [link](https://github.com/karpathy/llm-council) | none | `92e1fccb` |
 
 ---
 
@@ -37,6 +38,13 @@ Licença: none · Commit: cpe-auth
 - **cpe-personal-skill-error-handling** — `plugins/cpe-engineering/skills/error-handling/SKILL.md`
 - **cpe-personal-cmd-next-review** — `plugins/cpe-engineering/commands/next-review.md`
 - **cpe-personal-cmd-handoff-generator** — `plugins/cpe-engineering/commands/handoff-generator.md`
+- **atlas-agent-thinking-partner** — `plugins/atlas-mind/agents/thinking-partner/AGENT.md`
+- **atlas-agent-reading-companion** — `plugins/atlas-mind/agents/reading-companion/AGENT.md`
+- **atlas-agent-business-strategist** — `plugins/atlas-mind/agents/business-strategist/AGENT.md`
+- **atlas-skill-research** — `plugins/atlas-mind/skills/research/SKILL.md`
+- **atlas-skill-reading** — `plugins/atlas-mind/skills/reading/SKILL.md`
+- **atlas-skill-memory** — `plugins/atlas-mind/skills/memory/SKILL.md`
+- **atlas-skill-brain** — `plugins/atlas-mind/skills/brain/SKILL.md`
 
 ### Andrej Karpathy Skills
 
@@ -151,6 +159,12 @@ Licença: MIT · Commit: 71d22d0a
 Licença: Apache-2.0 · Commit: 545162ba
 
 - **anthropic-frontend-design-skill** — `plugins/cpe-design/skills/frontend-design/SKILL.md`
+
+### LLM Council (Andrej Karpathy)
+
+Licença: none · Commit: 92e1fccb
+
+- **atlas-skill-council** — `plugins/atlas-mind/skills/council/SKILL.md`
 
 ---
 
