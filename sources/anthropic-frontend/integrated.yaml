@@ -1,5 +1,5 @@
 # =============================================================================
-# CPE — Recursos integrados de: Anthropic Frontend Design (oficial)
+# Atlas — Recursos integrados de: Anthropic Frontend Design (oficial)
 # =============================================================================
 
 source_id: anthropic-frontend
@@ -13,8 +13,8 @@ resources:
   - id: anthropic-frontend-design-skill
     type: skill
     status: integrated
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/skills/frontend-design/SKILL.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/skills/frontend-design/SKILL.md
     original_path: plugins/frontend-design/skills/frontend-design/SKILL.md
     original_url: https://github.com/anthropics/claude-plugins-official/blob/main/plugins/frontend-design/skills/frontend-design/SKILL.md
     source_commit: 545162ba19782cb08668a5d1bb51a8e0368872ad
@@ -27,7 +27,7 @@ resources:
 notes: |
   Esta e a unica fonte com autoria direta da Anthropic — tratada com prioridade.
   O plugin frontend-design e a referencia canonica para geracao de UI de qualidade.
-  O CPE pode instalá-lo via 'claude plugin install frontend-design@claude-plugins-official'
-  como alternativa ou complemento ao cpe-design — avaliar na Fase 6 se instalar
+  O Atlas pode instalá-lo via 'claude plugin install frontend-design@claude-plugins-official'
+  como alternativa ou complemento ao atlas-design — avaliar na Fase 6 se instalar
   como dependencia ou absorver o conteudo da skill diretamente.
   Apache 2.0 — atribuicao obrigatoria.

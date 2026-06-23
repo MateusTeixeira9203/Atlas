@@ -1,5 +1,5 @@
 # =============================================================================
-# CPE — Recursos integrados de: superpowers
+# Atlas — Recursos integrados de: superpowers
 # =============================================================================
 
 source_id: superpowers
@@ -12,7 +12,7 @@ license: MIT
 # ~/.claude/skills/ neste ambiente. Reempacotar dentro do cpe-* criaria
 # conflito de definicao, confusao de versao e carga dupla no contexto.
 #
-# O CPE REFERENCIA o superpowers, nao o absorve.
+# O Atlas REFERENCIA o superpowers, nao o absorve.
 # Acao: no instalador (Fase 8), detectar se superpowers esta instalado;
 # se nao estiver, instalá-lo como prerequisito.
 
@@ -22,7 +22,7 @@ decision_rationale: sources/superpowers/decisions/dedup-report.md
 
 resources:
   # Todas as 14 skills estao listadas aqui como REFERENCE (nao extraidas).
-  # O CPE documenta sua existencia para o Update Engine monitorar.
+  # O Atlas documenta sua existencia para o Update Engine monitorar.
 
   - id: superpowers-skill-brainstorming
     type: skill
@@ -137,7 +137,7 @@ resources:
     cpe_action: none
 
 notes: |
-  superpowers e uma dependencia implicita do CPE, nao uma fonte de extracao.
-  O instalador do CPE (Fase 8) deve verificar se o superpowers esta instalado
+  superpowers e uma dependencia implicita do Atlas, nao uma fonte de extracao.
+  O instalador do Atlas (Fase 8) deve verificar se o superpowers esta instalado
   e instala-lo como prerequisito se nao estiver.
   Update Engine monitora o superpowers separadamente para detectar novas skills.

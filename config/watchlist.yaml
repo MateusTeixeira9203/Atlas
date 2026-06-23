@@ -1,5 +1,5 @@
 # =============================================================================
-# CPE — Watchlist do Research Engine
+# Atlas — Watchlist do Research Engine
 # -----------------------------------------------------------------------------
 # Define O QUE o Research Engine monitora. Ele apenas GERA RELATORIOS para
 # revisao humana — nunca instala, nunca altera o ambiente automaticamente.

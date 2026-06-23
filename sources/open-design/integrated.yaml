@@ -1,5 +1,5 @@
 # =============================================================================
-# CPE — Recursos integrados de: open-design
+# Atlas — Recursos integrados de: open-design
 # =============================================================================
 
 source_id: open-design
@@ -10,7 +10,7 @@ integrated_at: 2026-06-22
 # ESTRATÉGIA: open-design é massivo (200+ skills, 250+ design systems).
 # Curação seletiva das categorias de maior valor. Muitos skills são catálogos
 # que apontam para upstream repos — extraído apenas conteúdo substancial.
-# CPE-authored items sintetizados das fontes marcados como source: cpe.
+# Atlas-authored items sintetizados das fontes marcados como source: cpe.
 
 resources:
   # ── Skills integradas ──────────────────────────────────────────────────────
@@ -18,8 +18,8 @@ resources:
   - id: open-design-skill-design-brief
     type: skill
     status: integrated
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/skills/design-brief/SKILL.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/skills/design-brief/SKILL.md
     original_path: skills/design-brief/SKILL.md
     original_url: https://github.com/nexu-io/open-design/tree/main/skills/design-brief
     source_commit: 1cb7eae4
@@ -32,22 +32,22 @@ resources:
   - id: open-design-skill-impeccable-design-polish
     type: skill
     status: integrated
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/skills/impeccable-design-polish/SKILL.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/skills/impeccable-design-polish/SKILL.md
     original_path: skills/impeccable-design-polish/SKILL.md
     original_url: https://github.com/nexu-io/open-design/tree/main/skills/impeccable-design-polish
     source_commit: 1cb7eae4
     original_author: pbakaus
     integrated_at: 2026-06-22
     adaptation: >
-      Normalizado para CPE. Anti-AI-tells preservados integralmente. Adicionado
+      Normalizado para Atlas. Anti-AI-tells preservados integralmente. Adicionado
       padrão before/after em CSS para clareza.
 
   - id: open-design-skill-gsap-core
     type: skill
     status: integrated
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/skills/gsap-core/SKILL.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/skills/gsap-core/SKILL.md
     original_path: skills/gsap-core/SKILL.md
     original_url: https://github.com/nexu-io/open-design/tree/main/skills/gsap-core
     source_commit: 1cb7eae4
@@ -61,15 +61,15 @@ resources:
     type: skill
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/skills/design-system-tokens/SKILL.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/skills/design-system-tokens/SKILL.md
     synthesis_sources:
       - anthropic-frontend (Apache-2.0, commit 545162ba)
       - open-design (Apache-2.0, commit 1cb7eae4)
     integrated_at: 2026-06-22
     notes: >
-      CPE-authored synthesis. Vocabulário canônico de tokens usado por todas as
-      skills e agents de design do CPE. Não é cópia de nenhum upstream.
+      Atlas-authored synthesis. Vocabulário canônico de tokens usado por todas as
+      skills e agents de design do Atlas. Não é cópia de nenhum upstream.
 
   # ── Agents ─────────────────────────────────────────────────────────────────
 
@@ -77,8 +77,8 @@ resources:
     type: agent
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/agents/ui-architect/AGENT.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/agents/ui-architect/AGENT.md
     model: opus
     synthesis_sources:
       - open-design (Apache-2.0, commit 1cb7eae4)
@@ -90,8 +90,8 @@ resources:
     type: agent
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/agents/ux-reviewer/AGENT.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/agents/ux-reviewer/AGENT.md
     model: sonnet
     synthesis_sources:
       - open-design (Apache-2.0, commit 1cb7eae4)
@@ -103,8 +103,8 @@ resources:
     type: agent
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/agents/design-polish/AGENT.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/agents/design-polish/AGENT.md
     model: sonnet
     synthesis_sources:
       - open-design (impeccable-design-polish, Apache-2.0, commit 1cb7eae4)
@@ -117,8 +117,8 @@ resources:
     type: command
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/commands/design-brief.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/commands/design-brief.md
     synthesis_sources:
       - open-design skill design-brief (Apache-2.0, commit 1cb7eae4)
     integrated_at: 2026-06-22
@@ -128,8 +128,8 @@ resources:
     type: command
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/commands/design-review.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/commands/design-review.md
     synthesis_sources:
       - open-design (Apache-2.0, commit 1cb7eae4)
       - anthropic-frontend (Apache-2.0, commit 545162ba)
@@ -140,8 +140,8 @@ resources:
     type: command
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/commands/design-system-create.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/commands/design-system-create.md
     synthesis_sources:
       - open-design (Apache-2.0, commit 1cb7eae4)
     integrated_at: 2026-06-22
@@ -151,8 +151,8 @@ resources:
     type: command
     status: integrated
     source: cpe
-    target_plugin: cpe-design
-    cpe_path: plugins/cpe-design/commands/polish.md
+    target_plugin: atlas-design
+    cpe_path: plugins/atlas-design/commands/polish.md
     synthesis_sources:
       - open-design (impeccable-design-polish, Apache-2.0, commit 1cb7eae4)
     integrated_at: 2026-06-22
@@ -163,7 +163,7 @@ resources:
   - id: open-design-skill-apple-hig
     type: skill
     status: planned
-    target_plugin: cpe-design
+    target_plugin: atlas-design
     original_path: skills/apple-hig/
     original_url: https://github.com/nexu-io/open-design/tree/main/skills/apple-hig
     source_commit: 1cb7eae4
@@ -172,7 +172,7 @@ resources:
   - id: open-design-design-systems-curated
     type: design-system
     status: planned
-    target_plugin: cpe-design
+    target_plugin: atlas-design
     original_path: design-systems/
     original_url: https://github.com/nexu-io/open-design/tree/main/design-systems
     source_commit: 1cb7eae4
@@ -185,5 +185,5 @@ notes: |
   open-design é o repositório mais rico em design mas acoplado ao ecossistema nexu-io.
   Muitas skills são catálogos (não autocontidos) — estratégia: extrair conteúdo de skills
   com conteúdo substancial, ignorar ponteiros vazios.
-  Fase 6 integrou: 4 skills (3 open-design + 1 CPE-synthesis), 3 agents (CPE-synthesis),
-  4 commands (CPE-synthesis). Total Phase 6: 11 recursos.
+  Fase 6 integrou: 4 skills (3 open-design + 1 Atlas-synthesis), 3 agents (Atlas-synthesis),
+  4 commands (Atlas-synthesis). Total Phase 6: 11 recursos.

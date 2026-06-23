@@ -1,4 +1,4 @@
-// integrate.mjs — CPE Integration Pipeline (core functions)
+// integrate.mjs — Atlas Integration Pipeline (core functions)
 // Exporta cmdStatus e cmdAnalyze para uso via cpe.mjs.
 // Usa js-yaml para parsing correto — sem regex frágil.
 //
@@ -50,7 +50,7 @@ export async function cmdStatus({ verbose = false } = {}) {
   const manifest = loadManifest();
   const sources  = manifest.sources || [];
 
-  console.log('\n=== CPE Integration Status ===\n');
+  console.log('\n=== Atlas Integration Status ===\n');
 
   let totalIntegrated = 0;
   let totalStub       = 0;

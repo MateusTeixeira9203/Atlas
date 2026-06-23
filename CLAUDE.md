@@ -1,13 +1,13 @@
-# CLAUDE.md — Claude Professional Environment (CPE)
+# CLAUDE.md — Atlas
 
-Este é o repositório do CPE — uma distribuição pessoal de skills, agents, commands
+Este é o repositório do Atlas — uma distribuição pessoal de skills, agents, commands
 e design intelligence para Claude Code. Ao trabalhar neste repo, siga as regras abaixo.
 
 ---
 
 ## Identidade do projeto
 
-O CPE **é** um marketplace do Claude Code. O repositório está registrado via
+O Atlas **é** um marketplace do Claude Code. O repositório está registrado via
 `claude plugin marketplace add`, e seus plugins são carregados pelo Claude Code
 nativamente. Este não é um projeto de aplicação — é infraestrutura para o Claude.
 
@@ -27,7 +27,7 @@ nativamente. Este não é um projeto de aplicação — é infraestrutura para o
 - Rodar `node scripts/cpe.mjs doctor` após mudanças em `plugins/` ou `sources/`
 - Rodar `node scripts/cpe.mjs report` após mudanças para manter CREDITS.md atualizado
 - Usar `js-yaml` (já disponível) para qualquer parsing de YAML — nunca regex
-- Preservar a hierarquia: `manifest.yaml` → `integrated.yaml` → arquivo CPE
+- Preservar a hierarquia: `manifest.yaml` → `integrated.yaml` → arquivo Atlas
 - Manter `cpe_path` sincronizado com a localização real do arquivo
 
 ---
@@ -86,7 +86,7 @@ cpe:
 - id: <fonte>-<tipo>-<nome>
   type: skill|agent|command
   status: integrated|stub|planned
-  target_plugin: cpe-engineering|cpe-design|cpe-workflows|cpe-core
+  target_plugin: atlas-engineering|atlas-design|atlas-workflows|atlas-core
   cpe_path: plugins/<plugin>/skills/<nome>/SKILL.md
   ...
   integrated_at: <data>
@@ -119,7 +119,7 @@ no commit pinado do ECC (`71d22d0a`).
 
 ## Fluxo de trabalho para esta sessão
 
-Se o usuário pedir para continuar desenvolvendo o CPE:
+Se o usuário pedir para continuar desenvolvendo o Atlas:
 
 1. Verificar em qual fase estamos: `node scripts/cpe.mjs status`
 2. Executar `node scripts/cpe.mjs doctor` para ver o estado atual

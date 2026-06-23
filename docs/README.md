@@ -1,10 +1,10 @@
-# docs/ — Documentação do CPE
+# docs/ — Documentação do Atlas
 
 Documentação em **PT-BR**, uma por módulo.
 
 | Documento | Conteúdo |
 |---|---|
-| [architecture.md](architecture.md) | Arquitetura canônica — design canônico do CPE (Fase 1) |
+| [architecture.md](architecture.md) | Arquitetura canônica — design canônico do Atlas (Fase 1) |
 | [usage.md](usage.md) | Instalação, CLI `cpe`, uso diário no Claude Code |
 | [plugins.md](plugins.md) | Referência completa: skills, agents e commands dos 4 plugins |
 | [contributing.md](contributing.md) | Como adicionar fontes e recursos, checklists |

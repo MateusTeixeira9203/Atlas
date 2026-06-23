@@ -1,0 +1,17 @@
+{
+  "name": "atlas-workflows",
+  "description": "Development workflows, multi-agent orchestration, and automation flows. Curated from Ruflo (MIT) with Atlas-synthesized agents and commands.",
+  "version": "0.2.0",
+  "author": { "name": "Mateus Teixeira (Atlas)" },
+  "skills": [
+    "skills/orchestration-guide"
+  ],
+  "agents": [
+    "agents/swarm-coordinator",
+    "agents/goal-planner"
+  ],
+  "commands": [
+    "commands/prp-plan.md",
+    "commands/orch-build-mvp.md"
+  ]
+}

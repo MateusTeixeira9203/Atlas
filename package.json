@@ -1,7 +1,7 @@
 {
   "name": "cpe",
   "version": "0.8.0",
-  "description": "Claude Professional Environment — modular skill/agent/command framework for Claude Code",
+  "description": "Atlas — modular skill/agent/command framework for Claude Code",
   "type": "module",
   "bin": {
     "cpe": "./scripts/cpe.mjs"

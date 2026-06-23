@@ -17,7 +17,7 @@ Open Design usa **Apache 2.0**, que exige:
 
 ## Decisão
 
-Todo arquivo extraído do open-design para o `cpe-design/` deve incluir
+Todo arquivo extraído do open-design para o `atlas-design/` deve incluir
 um cabeçalho de proveniência:
 
 ```
@@ -28,7 +28,7 @@ um cabeçalho de proveniência:
 # Adaptações: [descrever o que foi alterado]
 ```
 
-O arquivo `CREDITS.md` da raiz do CPE deve listar o open-design com link
+O arquivo `CREDITS.md` da raiz do Atlas deve listar o open-design com link
 para a licença original.
 
-Uma cópia de `LICENSE-open-design` será mantida em `cpe-design/`.
+Uma cópia de `LICENSE-open-design` será mantida em `atlas-design/`.

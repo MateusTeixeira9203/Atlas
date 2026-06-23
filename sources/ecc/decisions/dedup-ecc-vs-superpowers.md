@@ -9,7 +9,7 @@
 ## Situação
 
 O ECC contém **271 skills** e o superpowers contém **14 skills** que são
-dependência implícita do CPE (ver `sources/superpowers/decisions/dedup-report.md`).
+dependência implícita do Atlas (ver `sources/superpowers/decisions/dedup-report.md`).
 
 Pode haver sobreposição funcional entre skills do ECC e skills do superpowers,
 pois ambos focam em engenharia de software e fluxos de desenvolvimento.
@@ -50,7 +50,7 @@ Uma skill do ECC é marcada como `dedup: true` e **não é integrada** se:
 Para cada skill do ECC:
 1. Verificar se equivalente existe no superpowers.
 2. Se sim → marcar `dedup: true` + registrar comparação neste arquivo.
-3. Se não → integrar em `cpe-engineering/skills/`.
+3. Se não → integrar em `atlas-engineering/skills/`.
 
 Resultado esperado: das 271 skills do ECC, ~10-20 terão dedup com superpowers.
 As demais (~250) são candidatas à integração curada.

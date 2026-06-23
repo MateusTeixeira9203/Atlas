@@ -7,7 +7,7 @@ Monitora **cada fonte separadamente**. Quando há atualização upstream:
 - gera relatório em `${state_dir}/update/reports`;
 - **sugere** integração — nunca aplica sozinho.
 
-Também reporta incompatibilidades entre o CPE e novas versões do Claude Code.
+Também reporta incompatibilidades entre o Atlas e novas versões do Claude Code.
 
 ## Estrutura (Clean Architecture)
 

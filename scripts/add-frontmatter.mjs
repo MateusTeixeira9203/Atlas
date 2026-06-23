@@ -31,10 +31,10 @@ const SKILLS = [
   'android-clean-architecture',
 ];
 
-console.log(`\n=== CPE Frontmatter Fix — ECC skills${APPLY ? '' : ' [DRY-RUN]'} ===\n`);
+console.log(`\n=== Atlas Frontmatter Fix — ECC skills${APPLY ? '' : ' [DRY-RUN]'} ===\n`);
 
 for (const slug of SKILLS) {
-  const filePath = join(ROOT, `plugins/cpe-engineering/skills/${slug}/SKILL.md`);
+  const filePath = join(ROOT, `plugins/atlas-engineering/skills/${slug}/SKILL.md`);
   let content;
   try {
     content = readFileSync(filePath, 'utf8');
@@ -59,7 +59,7 @@ for (const slug of SKILLS) {
   source_commit: ${ECC_SHORT}
   license: MIT
   integrated_at: ${DATE}
-  adaptation: Reformatado para padrão CPE SKILL.md; conteúdo preservado via WebFetch summary`;
+  adaptation: Reformatado para padrão Atlas SKILL.md; conteúdo preservado via WebFetch summary`;
 
   // Replace `metadata:\n  origin: ECC` or just add cpe: before closing ---
   let updated;

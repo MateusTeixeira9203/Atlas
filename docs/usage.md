@@ -1,4 +1,4 @@
-# CPE — Guia de Uso
+# Atlas — Guia de Uso
 
 ## Pré-requisitos
 
@@ -34,7 +34,7 @@ node scripts/cpe.mjs install
 
 Mostra o que seria feito sem alterar nada. Saída esperada:
 ```
-=== CPE Install [DRY-RUN] ===
+=== Atlas Install [DRY-RUN] ===
 
   ✔ Node.js 20.x.x ✔
   ✔ marketplace.json found
@@ -45,7 +45,7 @@ Mostra o que seria feito sem alterar nada. Saída esperada:
   · Registrar marketplace: cpe (file:///home/<user>/cpe)
 
   [DRY-RUN] Nenhuma mudança aplicada.
-  Execute com --apply para registrar o CPE:
+  Execute com --apply para registrar o Atlas:
 
     node scripts/cpe.mjs install --apply
 ```
@@ -56,7 +56,7 @@ Mostra o que seria feito sem alterar nada. Saída esperada:
 node scripts/cpe.mjs install --apply
 ```
 
-O CPE faz backup de `~/.claude/settings.json` automaticamente antes de qualquer mudança. O backup fica em `~/.cpe-state/settings.backup.<timestamp>.json`.
+O Atlas faz backup de `~/.claude/settings.json` automaticamente antes de qualquer mudança. O backup fica em `~/.cpe-state/settings.backup.<timestamp>.json`.
 
 ### 5. Verificar instalação
 
@@ -79,7 +79,7 @@ node scripts/cpe.mjs status --verbose   # lista cada recurso individualmente
 
 Saída:
 ```
-=== CPE Integration Status ===
+=== Atlas Integration Status ===
 
   [✔] ecc                      integrated=38  stub=32  planned=1  commit=71d22d0a
   [✔] open-design              integrated=11  stub=0   planned=2  commit=1cb7eae4
@@ -113,7 +113,7 @@ node scripts/cpe.mjs report --verbose   # inclui notas de adaptação
 
 ### `cpe doctor`
 
-Valida a integridade de toda a proveniência do CPE:
+Valida a integridade de toda a proveniência do Atlas:
 
 - Campos obrigatórios no `manifest.yaml`
 - `cpe_path` existente para cada recurso integrado
@@ -216,7 +216,7 @@ Invocados para tarefas específicas via Agent tool:
 
 ---
 
-## Atualização do CPE
+## Atualização do Atlas
 
 ```bash
 cd ~/cpe
@@ -231,11 +231,11 @@ node scripts/cpe.mjs status   # verificar estado após atualização
 
 ```bash
 # Remover o registro do marketplace em ~/.claude/settings.json
-# (editar manualmente removendo a entrada do CPE)
+# (editar manualmente removendo a entrada do Atlas)
 
 # Restaurar backup se necessário
 cp ~/.cpe-state/settings.backup.<timestamp>.json ~/.claude/settings.json
 ```
 
-O CPE nunca modifica arquivos do Claude Code — apenas registra o marketplace.
+O Atlas nunca modifica arquivos do Claude Code — apenas registra o marketplace.
 Remover o registro é suficiente para desinstalar completamente.

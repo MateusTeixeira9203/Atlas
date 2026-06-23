@@ -1,152 +1,117 @@
-# Claude Professional Environment (CPE)
+# Atlas
 
-Distribuição pessoal e modular do ambiente de desenvolvimento para **Claude Code** —
-skills, agentes, comandos, workflows e design intelligence curados de 6 repositórios
-base, reutilizáveis em qualquer projeto, instaláveis com um único comando.
+> Um par intelectual e arquiteto pessoal, construído sobre o Claude Code.
+> Com quem se discute ideias, se debate livros, se planeja negócio e se constrói
+> software — sempre com referências reais, e com memória que dura.
 
-> O CPE **complementa** o Claude Code; nunca o modifica. É registrado como
-> marketplace nativo via `claude plugin marketplace add`.
+Atlas não é um assistente que só executa. É um sistema que pensa junto: questiona,
+discorda quando há argumento, busca fontes verificáveis e acompanha do **pensamento
+→ idealização → arquitetura → implementação**. Vive 100% no GitHub e evolui commit
+a commit.
 
----
-
-## O que está incluído
-
-| Plugin | Skills | Agents | Commands | Foco |
-|---|---|---|---|---|
-| `cpe-engineering` | 8 | 13 | 16 | Backend, segurança, linguagens |
-| `cpe-design` | 5 | 3 | 4 | UI/UX, tokens, polish, animação |
-| `cpe-workflows` | 1 | 2 | 2 | Orquestração multi-agente, PRP |
-| `cpe-core` | — | — | 1 | `/scaffold` — gerador de templates |
-
-**Templates:** 4 (3 decks HTML + 1 perfil de agentes)  
-**Fontes upstream:** 6 (ECC, Open Design, Ruflo, Karpathy, Superpowers, Anthropic)  
-**Progresso:** 86/106 recursos integrados (81%); 32 stubs aguardando substituição
+Construído por **Mateus Teixeira**.
 
 ---
 
-## Instalação
+## As duas metades
+
+```
+        VOCÊ  (conversa em linguagem natural)
+                      │
+                  brain  (roteador fino, nativo)
+            ┌─────────┴──────────┐
+      atlas-mind            engenharia
+   (par intelectual)      (atlas-engineering / -design / -workflows)
+   pensar · ler ·          arquitetura · review ·
+   debater · negócio       testes · build
+            └─────────┬──────────┘
+              fundação compartilhada
+        pesquisa · leitura · memória · conselho
+```
+
+- **Metade intelectual** (`atlas-mind`) — personas para discutir ideias, debater
+  livros (PDF → notas destiladas) e pensar negócio, com disciplina de referências.
+- **Metade de engenharia** (`atlas-engineering`, `atlas-design`, `atlas-workflows`,
+  `atlas-core`) — skills, agents e comandos de código, design e workflow.
+
+## Como funciona
+
+O `brain` é só um roteador fino — não reinventa orquestração que o Claude Code já
+faz nativamente. Cada turno segue 5 passos:
+
+```
+1. Você fala            2. brain ativa persona + skills
+3. carrega memória      4. trabalha       5. destila p/ memory/
+```
+
+## Capacidades em destaque
+
+| O que | Como invocar |
+|---|---|
+| Debater uma ideia/decisão | conversa normal → `thinking-partner` |
+| Debater um livro (PDF) | mande o PDF → `reading-companion` |
+| Pensar negócio com mercado real | pergunte → `business-strategist` |
+| Decisão com vários ângulos | **"convoca o conselho"** → `council` (3 estágios: prós/contras/viabilidade) |
+| Auditar design de um projeto | `/design-review`, `/polish`, agentes `ux-reviewer` / `ui-architect` |
+
+## Memória — o cérebro que dura
+
+Markdown versionado em git, escopado em duas camadas:
+
+- **Pessoal (global)** — `memory/`: quem você é, livros, decisões, princípios.
+  Carregada em todo projeto.
+- **De projeto (local)** — vive dentro de cada projeto. Não vaza para os outros.
+
+Cada conversa deixa rastro estruturado. Em meses, `memory/` vira um corpus do seu
+próprio jeito de pensar — a base para, um dia, um modelo pessoal.
+
+## Estrutura
+
+```
+identity/        manifesto e princípios do Atlas
+core/            como ele raciocina, comunica e executa
+brain/           filosofia do roteador
+memory/          memória pessoal versionada
+plugins/
+  atlas-mind/        personas + skills intelectuais (+ council)
+  atlas-engineering/ atlas-design/ atlas-workflows/ atlas-core/
+sources/         proveniência de cada recurso curado
+scripts/         CLI de validação (cpe.mjs — doctor, report, status)
+```
+
+## Usar no Claude Code
+
+Atlas é uma **distribuição do Claude Code** — roda onde o Claude Code roda
+(VS Code + extensão, ou o CLI). Registre o marketplace uma vez:
 
 ```bash
-# 1. Clonar
-git clone https://github.com/<seu-usuario>/cpe.git ~/cpe
-cd ~/cpe
-
-# 2. Instalar dependências do CLI
-npm install
-
-# 3. Verificar pré-requisitos (dry-run)
-node scripts/cpe.mjs install
-
-# 4. Registrar o CPE como marketplace (efetiva)
+# no app: /plugin → add marketplace → caminho local deste repo
+# ou via CLI:
 node scripts/cpe.mjs install --apply
 ```
 
-Após o registro, o Claude Code detecta os plugins automaticamente.  
-Reversível: `node scripts/cpe.mjs install --apply` pode ser desfeito removendo o marketplace.
+Depois, em qualquer projeto (ex.: odonto.ia), o Atlas está disponível.
 
----
-
-## CLI `cpe`
-
-```
-node scripts/cpe.mjs <comando> [opções]
-```
-
-| Comando | O que faz |
-|---|---|
-| `status` | Estado de integração de todas as 6 fontes |
-| `analyze <source>` | Lista recursos de uma fonte (integrated/stub/planned) |
-| `report` | Gera `CREDITS.md` + `INTEGRATION_REPORT.md` |
-| `doctor` | Valida proveniência, `cpe_path`, frontmatter, orphans |
-| `research [source]` | Detecta novos commits upstream vs. commit pinado |
-| `update [source]` | Detecta stubs substituíveis por conteúdo real |
-| `install [--apply]` | Registra CPE como marketplace (dry-run sem `--apply`) |
+### CLI de manutenção
 
 ```bash
-# Exemplos
-node scripts/cpe.mjs status
-node scripts/cpe.mjs analyze ecc --verbose
-node scripts/cpe.mjs research --json
-node scripts/cpe.mjs update ecc
-node scripts/cpe.mjs doctor
+node scripts/cpe.mjs doctor    # valida proveniência e estrutura
+node scripts/cpe.mjs report    # regenera CREDITS.md / INTEGRATION_REPORT.md
+node scripts/cpe.mjs status    # estado das fontes integradas
 ```
 
----
+> Nota: a CLI mantém o nome de arquivo `cpe.mjs` e o frontmatter `cpe:` como
+> plumbing interno (renomear traria churn sem valor). A identidade do projeto é
+> Atlas; o motor por baixo segue funcionando.
 
-## Uso diário no Claude Code
+## Filosofia
 
-Após instalado, as skills/agents/commands ficam disponíveis automaticamente em qualquer sessão Claude Code.
-
-**Skills** — ativadas por trigger phrases:
-```
-"review this code"        → code-reviewer agent
-"design brief: dark SaaS" → /design-brief command → DESIGN.md
-"create a quarterly deck" → /scaffold → retro-quarterly-review
-"set up gsap animation"   → gsap-core skill
-```
-
-**Agents** — invocados para tarefas específicas:
-```
-/code-review      → code-reviewer + security-reviewer
-/design-review    → ux-reviewer + design-polish
-```
-
-**Commands** — slash commands disponíveis:
-```
-/checkpoint create    → salva estado do projeto
-/security-scan        → 5 áreas de segurança, security grade
-/pr                   → criação de PR com validação
-/design-brief "..."   → gera DESIGN.md
-/polish               → remove AI tells, normaliza tokens
-/scaffold             → gera deck HTML ou agent-profiles.yaml
-```
-
----
-
-## Estrutura do Repositório
-
-```
-cpe/
-├── .claude-plugin/marketplace.json   ← CPE IS um marketplace Claude Code
-├── plugins/
-│   ├── cpe-core/                     ← /scaffold
-│   ├── cpe-engineering/              ← skills, agents, commands de engenharia
-│   ├── cpe-design/                   ← design intelligence
-│   └── cpe-workflows/               ← orquestração multi-agente
-├── sources/
-│   ├── manifest.yaml                 ← 6 fontes upstream com commits pinados
-│   └── <fonte>/integrated.yaml       ← rastreabilidade por recurso
-├── templates/
-│   ├── decks/                        ← html-deck-framework, kami, retro-quarterly
-│   └── workflows/                    ← agent-profiles (dev/safe/ci)
-├── scripts/
-│   ├── cpe.mjs                       ← CLI principal
-│   ├── integrate.mjs                 ← parser YAML (js-yaml), cmdStatus/Analyze
-│   ├── report-engine.mjs             ← CREDITS.md + INTEGRATION_REPORT.md
-│   ├── doctor.mjs                    ← validação de proveniência
-│   ├── research-engine.mjs           ← detecção de atualizações upstream
-│   └── update-engine.mjs             ← detecção de stubs substituíveis
-├── docs/
-│   ├── architecture.md               ← design canônico do CPE
-│   ├── usage.md                      ← instalação e uso detalhado
-│   ├── plugins.md                    ← referência completa dos plugins
-│   └── contributing.md               ← como adicionar fontes e recursos
-├── CLAUDE.md                         ← instruções para Claude Code
-└── CREDITS.md                        ← atribuição gerada (cpe report)
-```
-
----
+Qualidade antes de velocidade. Remover complexidade antes de adicionar abstração.
+Referências reais antes de palpite. Atlas é feito para continuar elegante daqui a
+cinco anos. Leia o [manifesto](identity/manifesto.md) e a
+[arquitetura](docs/atlas-architecture.md).
 
 ## Créditos
 
-O CPE cura recursos de projetos open source com licenças explícitas.
-Nenhum conteúdo é copiado integralmente sem atribuição. Ver [CREDITS.md](CREDITS.md).
-
-| Fonte | Autor | Licença |
-|---|---|---|
-| ECC (Everything Claude Code) | affaan-m | MIT |
-| Open Design | nexu-io | Apache-2.0 |
-| Ruflo | ruvnet | MIT |
-| Andrej Karpathy Skills | multica-ai | (sem licença — uso educacional) |
-| Superpowers | Jesse Vincent (obra) | MIT |
-| Anthropic Frontend Design | Anthropic | Apache-2.0 |
+Atlas cura recursos de projetos open source preservando autoria, licença e
+rastreabilidade. Ver [CREDITS.md](CREDITS.md).

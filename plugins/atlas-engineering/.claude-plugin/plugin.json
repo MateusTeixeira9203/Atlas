@@ -1,0 +1,6 @@
+{
+  "name": "atlas-engineering",
+  "description": "Skills e agentes de engenharia de software: arquitetura, debugging sistematico, clean code, testes. Curado de Karpathy, Ruflo e ECC.",
+  "version": "0.1.0",
+  "author": { "name": "Mateus Teixeira (Atlas)" }
+}

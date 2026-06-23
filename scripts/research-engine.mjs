@@ -1,4 +1,4 @@
-// research-engine.mjs — CPE Research Engine
+// research-engine.mjs — Atlas Research Engine
 // Detecta atualizações upstream comparando commits pinados com o HEAD atual.
 // Gera relatório em ~/.cpe-state/ e stdout. NUNCA aplica mudanças.
 //
@@ -132,7 +132,7 @@ export async function cmdResearch({ sourceFilter = null, json = false, verbose =
   }
 
   if (!json) {
-    console.log(`\n=== CPE Research Engine — ${today} ===`);
+    console.log(`\n=== Atlas Research Engine — ${today} ===`);
     const tokenNote = process.env.GITHUB_TOKEN ? '(autenticado)' : '(sem GITHUB_TOKEN — limite 60 req/hora)';
     console.log(`GitHub API ${tokenNote}\n`);
   }
@@ -246,13 +246,13 @@ function printSourceResult(r, verbose) {
   }
 
   if (r.affectedResources.length) {
-    console.log(`    Recursos CPE potencialmente afetados (${r.affectedResources.length}):`);
+    console.log(`    Recursos Atlas potencialmente afetados (${r.affectedResources.length}):`);
     for (const a of r.affectedResources) {
       const stub = a.status === 'stub' ? ' [stub]' : '';
       console.log(`      ~ ${a.id}${stub} → ${a.cpe_path}`);
     }
   } else if (r.changedFiles.length) {
-    console.log(`    Nenhum recurso CPE mapeado para os arquivos alterados.`);
+    console.log(`    Nenhum recurso Atlas mapeado para os arquivos alterados.`);
   }
   console.log();
 }
@@ -269,7 +269,7 @@ function printSummary(results) {
     console.log('\n  Updates disponíveis:');
     for (const u of updates) {
       const count = u.affectedResources.length;
-      console.log(`    ${u.id}: ${u.aheadBy > 0 ? u.aheadBy + ' commits' : 'N commits'}  (${count} recurso(s) CPE possivelmente afetado(s))`);
+      console.log(`    ${u.id}: ${u.aheadBy > 0 ? u.aheadBy + ' commits' : 'N commits'}  (${count} recurso(s) Atlas possivelmente afetado(s))`);
     }
     console.log('\n  Nota: Updates detectados são informativos. Use cpe doctor para validar.');
     console.log('  Para atualizar: edite o pinned_commit em sources/manifest.yaml e re-integre manualmente.');

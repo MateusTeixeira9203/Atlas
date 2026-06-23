@@ -1,5 +1,5 @@
-// install.mjs — CPE Install / Uninstall
-// Registra o CPE como marketplace no Claude Code.
+// install.mjs — Atlas Install / Uninstall
+// Registra o Atlas como marketplace no Claude Code.
 //
 // IMPORTANTE:
 //   - Dry-run por padrão (sem --apply). Mostra o que faria.
@@ -19,7 +19,7 @@ const STATE_DIR        = join(homedir(), '.cpe-state');
 
 export async function cmdInstall({ apply = false, verbose = false } = {}) {
   const mode = apply ? 'APPLY' : 'DRY-RUN';
-  console.log(`\n=== CPE Install [${mode}] ===\n`);
+  console.log(`\n=== Atlas Install [${mode}] ===\n`);
 
   // ── Prerequisite checks ───────────────────────────────────────────────────
 
@@ -68,7 +68,7 @@ export async function cmdInstall({ apply = false, verbose = false } = {}) {
 
   // 2. Register marketplace
   const marketplace = JSON.parse(readFileSync(MARKETPLACE_JSON, 'utf8'));
-  console.log(`  · Registrar marketplace: ${marketplace.name} (${marketplace.marketplace_url})`);
+  console.log(`  · Registrar marketplace: ${marketplace.name} (${ROOT})`);
 
   // 3. What --apply would write
   console.log('\n  Resultado em settings.json (prévia):');
@@ -77,7 +77,7 @@ export async function cmdInstall({ apply = false, verbose = false } = {}) {
 
   if (!apply) {
     console.log('\n  [DRY-RUN] Nenhuma mudança aplicada.');
-    console.log('  Execute com --apply para registrar o CPE:\n');
+    console.log('  Execute com --apply para registrar o Atlas:\n');
     console.log('    cpe install --apply\n');
     return;
   }
@@ -96,7 +96,7 @@ export async function cmdInstall({ apply = false, verbose = false } = {}) {
   writeFileSync(SETTINGS_PATH, JSON.stringify(settingsPreview, null, 2) + '\n', 'utf8');
   console.log(`  ✔ settings.json atualizado: ${SETTINGS_PATH}`);
 
-  console.log('\n  CPE registrado com sucesso!');
+  console.log('\n  Atlas registrado com sucesso!');
   console.log(`  Execute 'claude plugin list' para confirmar.\n`);
 }
 
@@ -112,13 +112,18 @@ function buildSettings(settingsPath, marketplace) {
   if (!settings.plugins) settings.plugins = {};
   if (!settings.plugins.marketplaces) settings.plugins.marketplaces = [];
 
+  // Fonte do marketplace = caminho local deste repo (que contém
+  // .claude-plugin/marketplace.json). NOTA: no app desktop, o registro
+  // autoritativo é via /plugin; este caminho serve ao fluxo de CLI.
+  const source = ROOT;
+
   // Idempotent — não duplica
   const alreadyRegistered = settings.plugins.marketplaces.some(
-    m => (typeof m === 'string' ? m : m.url) === marketplace.marketplace_url
+    m => (typeof m === 'string' ? m : m.url) === source
   );
 
   if (!alreadyRegistered) {
-    settings.plugins.marketplaces.push(marketplace.marketplace_url);
+    settings.plugins.marketplaces.push(source);
   }
 
   return settings;

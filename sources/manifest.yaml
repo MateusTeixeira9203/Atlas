@@ -1,7 +1,7 @@
 # =============================================================================
-# CPE — Manifesto de Fontes (Sources)
+# Atlas — Manifesto de Fontes (Sources)
 # -----------------------------------------------------------------------------
-# Registro das fontes upstream que o CPE estuda e cura. O CPE NAO copia os
+# Registro das fontes upstream que o Atlas estuda e cura. O Atlas NAO copia os
 # repositorios: ele extrai recursos selecionados com proveniencia completa.
 #
 # Atualizado na Fase 2 (Integracao) com commits e licencas reais.
@@ -11,14 +11,14 @@ schema_version: 1
 
 sources:
   - id: cpe-personal
-    name: CPE Personal (Authored)
+    name: Atlas Personal (Authored)
     repository: https://github.com/MateusTeixeira9203/Skills_setup
     author: Mateus Teixeira
     responsible_for: [skills, commands, personal-stack]
     pinned_commit: cpe-authored
     pinned_date: 2026-06-22
     license: none
-    license_note: "Skills e commands CPE-authored baseados no stack pessoal (Next.js, Supabase, AI SDK). Nenhuma cópia direta de upstream."
+    license_note: "Skills e commands Atlas-authored baseados no stack pessoal (Next.js, Supabase, AI SDK). Nenhuma cópia direta de upstream."
     last_sync: 2026-06-22
     integrated_yaml: sources/cpe-personal/integrated.yaml
 

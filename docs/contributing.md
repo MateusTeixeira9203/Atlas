@@ -1,7 +1,7 @@
-# CPE — Contribuindo (Adicionando Fontes e Recursos)
+# Atlas — Contribuindo (Adicionando Fontes e Recursos)
 
 Este documento descreve como adicionar uma nova fonte upstream ou integrar
-novos recursos no CPE, seguindo os mesmos princípios usados nas Fases 2-10.
+novos recursos no Atlas, seguindo os mesmos princípios usados nas Fases 2-10.
 
 ---
 
@@ -71,7 +71,7 @@ curl -s "https://raw.githubusercontent.com/owner/repo/<sha>/path/to/file.md"
 
 ### 2. Checar deduplicação
 
-Antes de integrar, verificar se existe recurso equivalente já no CPE:
+Antes de integrar, verificar se existe recurso equivalente já no Atlas:
 - Skills: buscar em `plugins/*/skills/`
 - Agents: buscar em `plugins/*/agents/`
 - Commands: buscar em `plugins/*/commands/`
@@ -96,13 +96,13 @@ INCLUIR | EXCLUIR | RENOMEAR
 <qual versão foi preferida e por quê>
 ```
 
-### 3. Criar o arquivo CPE
+### 3. Criar o arquivo Atlas
 
 **Skill** → `plugins/<plugin>/skills/<nome>/SKILL.md`  
 **Agent** → `plugins/<plugin>/agents/<nome>/AGENT.md`  
 **Command** → `plugins/<plugin>/commands/<nome>.md`
 
-Todo arquivo CPE começa com o frontmatter de proveniência:
+Todo arquivo Atlas começa com o frontmatter de proveniência:
 
 ```yaml
 ---
@@ -120,7 +120,7 @@ cpe:
 ---
 ```
 
-**Para recursos sintetizados (CPE-authored):**
+**Para recursos sintetizados (Atlas-authored):**
 
 ```yaml
 cpe:
@@ -129,7 +129,7 @@ cpe:
     - fonte-a (license-a, commit abcd1234)
     - fonte-b (license-b, commit efgh5678)
   integrated_at: 2026-MM-DD
-  adaptation: CPE-authored synthesis
+  adaptation: Atlas-authored synthesis
 ```
 
 ### 4. Registrar em `integrated.yaml`
@@ -140,8 +140,8 @@ Adicionar à lista `resources` da fonte:
 - id: <source-id>-<tipo>-<nome>
   type: skill           # skill | agent | command | template | document
   status: integrated    # integrated | stub | planned
-  target_plugin: cpe-engineering
-  cpe_path: plugins/cpe-engineering/skills/<nome>/SKILL.md
+  target_plugin: atlas-engineering
+  cpe_path: plugins/atlas-engineering/skills/<nome>/SKILL.md
   original_path: skills/<nome>/SKILL.md
   original_url: https://github.com/owner/repo/tree/<sha>/skills/<nome>
   source_commit: <8 chars>
@@ -165,15 +165,15 @@ node scripts/cpe.mjs report   # atualiza CREDITS.md e INTEGRATION_REPORT.md
 
 | Tipo de conteúdo | Plugin |
 |---|---|
-| Skills de engenharia (linguagens, arquitetura, segurança, testes) | `cpe-engineering` |
-| Agents de revisão de código / arquitetura | `cpe-engineering` |
-| Commands de CI/CD, git, qualidade | `cpe-engineering` |
-| Skills de design, tokens, animação | `cpe-design` |
-| Agents de UX/UI review | `cpe-design` |
-| Commands de design workflow | `cpe-design` |
-| Skills/agents de orquestração multi-agente | `cpe-workflows` |
-| Commands de workflow e planejamento | `cpe-workflows` |
-| Commands de meta-utilidades, templates | `cpe-core` |
+| Skills de engenharia (linguagens, arquitetura, segurança, testes) | `atlas-engineering` |
+| Agents de revisão de código / arquitetura | `atlas-engineering` |
+| Commands de CI/CD, git, qualidade | `atlas-engineering` |
+| Skills de design, tokens, animação | `atlas-design` |
+| Agents de UX/UI review | `atlas-design` |
+| Commands de design workflow | `atlas-design` |
+| Skills/agents de orquestração multi-agente | `atlas-workflows` |
+| Commands de workflow e planejamento | `atlas-workflows` |
+| Commands de meta-utilidades, templates | `atlas-core` |
 
 ---
 
@@ -188,7 +188,7 @@ curl -s "<url-do-cpe-update --verbose>" > /tmp/upstream.md
 
 2. Revisar conteúdo: verificar qualidade, relevância, licença
 
-3. Normalizar frontmatter CPE (adicionar `cpe:` no topo)
+3. Normalizar frontmatter Atlas (adicionar `cpe:` no topo)
 
 4. Salvar no `cpe_path` sugerido
 

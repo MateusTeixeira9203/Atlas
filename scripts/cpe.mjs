@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// cpe.mjs — Claude Professional Environment CLI
+// cpe.mjs — Atlas CLI
 // Entry point que roteia para subcomandos.
 //
 // Usage:
@@ -8,7 +8,7 @@
 //   cpe report                  → gera CREDITS.md + INTEGRATION_REPORT.md
 //   cpe doctor                  → valida proveniência, orphans, manifests
 //   cpe research [source-id]    → detecta atualizações upstream (somente leitura)
-//   cpe install [--apply]       → registra CPE como plugin (dry-run sem --apply)
+//   cpe install [--apply]       → registra Atlas como plugin (dry-run sem --apply)
 //
 // Convenções:
 //   - Dry-run por padrão. Efetiva só com --apply.
@@ -27,7 +27,7 @@ const flags    = new Set(args.filter(a => a.startsWith('--')));
 const positional = args.filter(a => !a.startsWith('--'));
 
 const HELP = `
-CPE — Claude Professional Environment v0.10.0
+Atlas — par intelectual e arquiteto pessoal · v0.10.0
 
 Comandos:
   status                    → estado de integração de todas as fontes
@@ -36,7 +36,7 @@ Comandos:
   doctor                    → valida proveniência, cpe_path, orphans
   research [source-id]      → detecta atualizações de commit no upstream
   update [source-id]        → detecta stubs substituíveis por conteúdo real
-  install [--apply]         → registra CPE como marketplace (dry-run sem --apply)
+  install [--apply]         → registra Atlas como marketplace (dry-run sem --apply)
 
 Flags:
   --apply                   → aplicar mudanças (padrão: dry-run)

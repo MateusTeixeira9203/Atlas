@@ -1,4 +1,4 @@
-# Arquitetura do Claude Professional Environment (CPE)
+# Arquitetura do Atlas
 
 > Documento canônico da **Fase 1 — Arquitetura**.
 > Status: aprovado em 2026-06-22. Este documento governa as fases seguintes.
@@ -7,20 +7,20 @@
 
 ## 1. Visão
 
-O CPE é uma **distribuição pessoal do ambiente de desenvolvimento para Claude Code**:
+O Atlas é uma **distribuição pessoal do ambiente de desenvolvimento para Claude Code**:
 um conjunto coeso e versionado de skills, agentes, comandos, workflows e
 inteligência de design, reutilizável em qualquer projeto e instalável em
 qualquer máquina com um único comando.
 
-O CPE **complementa** o Claude Code; nunca o modifica. A Anthropic continua
-atualizando o Claude Code normalmente, e o CPE pode ser instalado, atualizado
+O Atlas **complementa** o Claude Code; nunca o modifica. A Anthropic continua
+atualizando o Claude Code normalmente, e o Atlas pode ser instalado, atualizado
 ou removido sem afetar essa instalação.
 
 ---
 
 ## 2. Princípio organizador
 
-> **O CPE é um repositório que _é_ um marketplace oficial do Claude Code.**
+> **O Atlas é um repositório que _é_ um marketplace oficial do Claude Code.**
 
 A integração acontece pelo mecanismo nativo `claude plugin` (marketplace +
 plugins). Isso resolve quatro exigências de uma só vez:
@@ -34,7 +34,7 @@ plugins). Isso resolve quatro exigências de uma só vez:
 
 ### 2.1 Três planos de responsabilidade
 
-O CPE separa três coisas que normalmente se misturam:
+O Atlas separa três coisas que normalmente se misturam:
 
 | Plano | O que é | Local | Versionado |
 |---|---|---|---|
@@ -53,14 +53,14 @@ sincronização do OneDrive sobre dados voláteis e pesados.
 ```
 cpe/                                    ← raiz = marketplace
 ├── .claude-plugin/
-│   └── marketplace.json                ← lista os plugins do CPE
+│   └── marketplace.json                ← lista os plugins do Atlas
 ├── plugins/                            ← unidades que o Claude Code carrega
-│   ├── cpe-core/                       ← convenções, meta-comandos, guarda-design
+│   ├── atlas-core/                       ← convenções, meta-comandos, guarda-design
 │   │   ├── .claude-plugin/plugin.json
 │   │   ├── commands/  skills/  agents/  hooks/
-│   ├── cpe-engineering/                ← Karpathy · Ruflo · ECC
-│   ├── cpe-design/                     ← Open Design · Anthropic Frontend
-│   └── cpe-workflows/                  ← Ruflo
+│   ├── atlas-engineering/                ← Karpathy · Ruflo · ECC
+│   ├── atlas-design/                     ← Open Design · Anthropic Frontend
+│   └── atlas-workflows/                  ← Ruflo
 ├── sources/                            ← rastreabilidade (NÃO carregado pelo CC)
 │   ├── manifest.yaml                   ← registro dos upstreams
 │   └── <source-id>/
@@ -84,7 +84,7 @@ cpe/                                    ← raiz = marketplace
 ### 3.1 Por que plugins por domínio, e não por tipo
 
 Um plugin do Claude Code é um **bundle coeso** (skills + commands + agents +
-hooks juntos). Agrupar por domínio (`cpe-engineering`) é mais útil e permite
+hooks juntos). Agrupar por domínio (`atlas-engineering`) é mais útil e permite
 instalação seletiva, em vez de separar um `skills/` gigante de um `agents/`
 gigante. O modelo mental do projeto (skills / agents / commands / design …)
 sobrevive como **taxonomia de classificação** dentro de `sources/`, não como
@@ -117,7 +117,7 @@ em `sources/<id>/integrated.yaml` — esta é a **fonte da verdade** para gerar 
 ```yaml
 - id: karpathy-systematic-debugging
   classified_as: skill
-  target_plugin: cpe-engineering
+  target_plugin: atlas-engineering
   original_path: skills/systematic-debugging.md
   source_commit: abc123
   normalized: true
@@ -146,10 +146,10 @@ Todos via CLI oficial `claude plugin`, sempre com backup antes e dry-run por pad
 1. Detecta SO e `claude --version`.
 2. Backup de `~/.claude/settings.json` e da config de plugins em `state_dir/backups/`.
 3. `claude plugin marketplace add <repo>`.
-4. `claude plugin install cpe-core@cpe` (e demais plugins).
+4. `claude plugin install atlas-core@cpe` (e demais plugins).
 5. Valida (`claude plugin validate`) e emite relatório.
 
-### 5.2 Update do CPE
+### 5.2 Update do Atlas
 `git pull` → `claude plugin update` → relatório de incompatibilidades. Nunca automático.
 
 ### 5.3 Update das fontes
@@ -208,7 +208,7 @@ engines testáveis sem rede nem filesystem real.
 | 3 — Skills | Extração e curadoria de skills nos plugins `cpe-*` + dedup |
 | 4 — Agentes | Agentes nos plugins, com proveniência |
 | 5 — Commands | Comandos e estrutura (ECC) |
-| 6 — Design Intelligence | `cpe-design` completo: tokens, regras, guarda anti-genérico |
+| 6 — Design Intelligence | `atlas-design` completo: tokens, regras, guarda anti-genérico |
 | 7 — Templates | `templates/` versionados |
 | 8 — Automation Engine | `scripts/cpe.mjs` install/uninstall/update/doctor |
 | 9 — Research Engine | `engines/research` + relatórios da watchlist |
@@ -220,7 +220,7 @@ engines testáveis sem rede nem filesystem real.
 
 ## 9. Convenções de qualidade
 
-Todo código do CPE segue Clean Architecture, SOLID, DRY, KISS e Clean Code,
+Todo código do Atlas segue Clean Architecture, SOLID, DRY, KISS e Clean Code,
 com documentação obrigatória por módulo. Identificadores em inglês,
 documentação para humanos em PT-BR. Nada de caminhos absolutos. Nada é aplicado
 ao ambiente do usuário sem confirmação explícita.

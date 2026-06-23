@@ -2,7 +2,7 @@
 
 | Arquivo | Papel |
 |---|---|
-| `config.yaml` | Configuração central do CPE. **Zero caminhos absolutos.** |
+| `config.yaml` | Configuração central do Atlas. **Zero caminhos absolutos.** |
 | `watchlist.yaml` | Alvos monitorados pelo Research Engine |
 
 Regra de ouro: tudo é resolvido em runtime (raiz via `import.meta.url`, home via

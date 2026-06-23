@@ -1,18 +1,18 @@
-# CPE — Referência de Plugins
+# Atlas — Referência de Plugins
 
-Referência completa dos 4 plugins do CPE: skills, agents e commands disponíveis.
+Referência completa dos 4 plugins do Atlas: skills, agents e commands disponíveis.
 
 ---
 
-## `cpe-core`
+## `atlas-core`
 
-Convenções CPE, meta-comandos e gerador de templates.
+Convenções Atlas, meta-comandos e gerador de templates.
 
 ### Commands
 
 | Command | Uso |
 |---|---|
-| `/scaffold` | Gera artefatos de projeto a partir de templates CPE |
+| `/scaffold` | Gera artefatos de projeto a partir de templates Atlas |
 
 **`/scaffold`** — interativo ou direto:
 ```
@@ -24,7 +24,7 @@ Convenções CPE, meta-comandos e gerador de templates.
 
 ---
 
-## `cpe-engineering`
+## `atlas-engineering`
 
 Skills, agents e commands de engenharia de software. Curado de ECC (MIT) e Karpathy.
 
@@ -42,7 +42,7 @@ Skills, agents e commands de engenharia de software. Curado de ECC (MIT) e Karpa
 | `dotnet-patterns` | ECC (stub) | Records, async/await, DI, Result pattern |
 | `defi-amm-security` | ECC (stub) | Reentrancy/CEI, oracle TWAP, Slither/Echidna |
 
-> Stubs: conteúdo CPE-normalizado aguardando substituição por conteúdo verbatim.
+> Stubs: conteúdo Atlas-normalizado aguardando substituição por conteúdo verbatim.
 
 ### Agents (13)
 
@@ -81,7 +81,7 @@ Skills, agents e commands de engenharia de software. Curado de ECC (MIT) e Karpa
 
 ---
 
-## `cpe-design`
+## `atlas-design`
 
 Design intelligence: tokens, visual review, acessibilidade, polish. Curado de Open Design (Apache-2.0) e Anthropic Frontend Design.
 
@@ -93,7 +93,7 @@ Design intelligence: tokens, visual review, acessibilidade, polish. Curado de Op
 | `design-brief` | Open Design | 8 dimensões de brief → DESIGN.md com vocabulário fechado |
 | `impeccable-design-polish` | Open Design / pbakaus | Remove AI tells, audita e refina interfaces geradas |
 | `gsap-core` | Open Design (MIT) | GSAP API: to/from/timeline/stagger, prefers-reduced-motion |
-| `design-system-tokens` | CPE-synthesis | Vocabulário canônico: color, typography, spacing, radius, shadow, motion |
+| `design-system-tokens` | Atlas-synthesis | Vocabulário canônico: color, typography, spacing, radius, shadow, motion |
 
 #### `design-brief` — 8 dimensões
 
@@ -137,7 +137,7 @@ Design intelligence: tokens, visual review, acessibilidade, polish. Curado de Op
 
 ---
 
-## `cpe-workflows`
+## `atlas-workflows`
 
 Orquestração multi-agente, PRP e workflow automation. Curado de Ruflo (MIT).
 

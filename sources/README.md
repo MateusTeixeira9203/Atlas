@@ -1,6 +1,6 @@
 # sources/ — Rastreabilidade
 
-Este módulo **não é carregado pelo Claude Code**. Ele garante a filosofia do CPE:
+Este módulo **não é carregado pelo Claude Code**. Ele garante a filosofia do Atlas:
 estudar os upstreams, não copiá-los, e preservar autoria, licença e proveniência.
 
 ## Conteúdo

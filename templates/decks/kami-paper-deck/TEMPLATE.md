@@ -8,7 +8,7 @@ cpe:
   source_commit: 1cb7eae4
   license: Apache-2.0
   integrated_at: 2026-06-22
-  adaptation: Extraído e documentado como TEMPLATE.md CPE
+  adaptation: Extraído e documentado como TEMPLATE.md Atlas
 ---
 
 # Kami Paper Deck

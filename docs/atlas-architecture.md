@@ -3,7 +3,7 @@
 > Documento de fundação. Define **como** o Atlas funciona e por quê. Decisões de
 > arquitetura mudam aqui primeiro — código depois.
 
-O Atlas é uma **evolução do CPE**, construída com a estratégia **nativo-primeiro**:
+O Atlas é uma **evolução do Atlas**, construída com a estratégia **nativo-primeiro**:
 reaproveitar o que o Claude Code já oferece, em vez de reinventar orquestração.
 
 ---
@@ -103,7 +103,7 @@ arquivo fica local; versiona-se só as notas destiladas.
 
 ---
 
-## 5. Evolução do CPE — aditivo, não demolição
+## 5. Evolução do Atlas — aditivo, não demolição
 
 ```
 identity/        ← quem o Atlas é                          [NOVO]
@@ -111,7 +111,7 @@ memory/          ← memória pessoal versionada              [NOVO]
 brain/           ← roteador de entrada                     [NOVO]
 plugins/
   atlas-mind/    ← personas + skills intelectuais          [NOVO]
-  cpe-engineering/ · cpe-design/ · cpe-workflows/          [REAPROVEITA]
+  atlas-engineering/ · atlas-design/ · atlas-workflows/          [REAPROVEITA]
 engines/
   research/      ← pesquisa real (hoje vazio → implementar)
   reading/       ← ingestão de PDF → notas                 [NOVO]

@@ -1,9 +1,0 @@
-{
-  "name": "cpe-core",
-  "description": "CPE conventions, meta-commands, and the anti-generic design guard. Base installed by all other plugins. Provides /scaffold for project artifact generation.",
-  "version": "0.2.0",
-  "author": { "name": "Mateus Teixeira (CPE)" },
-  "commands": [
-    "commands/scaffold.md"
-  ]
-}

@@ -1,6 +1,6 @@
-// doctor.mjs — CPE Doctor
+// doctor.mjs — Atlas Doctor
 // Valida: proveniência completa, cpe_path apontando para arquivos reais,
-// frontmatter CPE presente, orphans (arquivos sem registro no integrated.yaml).
+// frontmatter Atlas presente, orphans (arquivos sem registro no integrated.yaml).
 // Somente leitura. Nunca modifica nada.
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
@@ -8,7 +8,7 @@ import { join, relative }                                   from 'node:path';
 import { ROOT, SOURCES_DIR, loadManifest, loadIntegrated, allSourceIds } from './integrate.mjs';
 
 export async function cmdDoctor({ verbose = false } = {}) {
-  console.log('\n=== CPE Doctor ===\n');
+  console.log('\n=== Atlas Doctor ===\n');
 
   const errors   = [];
   const warnings = [];
@@ -47,13 +47,13 @@ export async function cmdDoctor({ verbose = false } = {}) {
         if (!r.integrated_at) warnings.push(`${src.id}/${r.id}: integrated_at ausente`);
         if (!r.cpe_path)      errors.push(`${src.id}/${r.id}: cpe_path ausente (obrigatório para status=${r.status})`);
 
-        // Verifica se o arquivo CPE realmente existe
+        // Verifica se o arquivo Atlas realmente existe
         if (r.cpe_path) {
           const fullPath = join(ROOT, r.cpe_path);
           if (!existsSync(fullPath)) {
             errors.push(`${src.id}/${r.id}: cpe_path não encontrado: ${r.cpe_path}`);
           } else {
-            // Verifica presença do frontmatter CPE
+            // Verifica presença do frontmatter Atlas
             const content = readFileSync(fullPath, 'utf8');
             if (!content.includes('cpe:')) {
               warnings.push(`${src.id}/${r.id}: arquivo sem frontmatter 'cpe:' → ${r.cpe_path}`);
@@ -67,7 +67,7 @@ export async function cmdDoctor({ verbose = false } = {}) {
   }
 
   // ── 3. Orphan detection ───────────────────────────────────────────────────
-  // Arquivos em plugins/ com frontmatter CPE que não aparecem em nenhum integrated.yaml
+  // Arquivos em plugins/ com frontmatter Atlas que não aparecem em nenhum integrated.yaml
 
   const registeredPaths = new Set();
   for (const src of sources) {

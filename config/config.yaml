@@ -1,5 +1,5 @@
 # =============================================================================
-# CPE — Configuracao central
+# Atlas — Configuracao central
 # -----------------------------------------------------------------------------
 # REGRA DE OURO: nenhum caminho absoluto neste arquivo. Tudo e resolvido em
 # runtime (raiz do repo via import.meta.url; home do usuario via os.homedir()).
@@ -19,10 +19,10 @@ state_dir: "~/.cpe-state"
 
 # Plugins distribuidos por este marketplace (espelha .claude-plugin/marketplace.json).
 plugins:
-  - cpe-core
-  - cpe-engineering
-  - cpe-design
-  - cpe-workflows
+  - atlas-core
+  - atlas-engineering
+  - atlas-design
+  - atlas-workflows
 
 install:
   dry_run_default: true            # mostra o que faria; exige --apply para efetivar

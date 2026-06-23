@@ -1,4 +1,4 @@
-# Decisão de Dedup: Superpowers × CPE
+# Decisão de Dedup: Superpowers × Atlas
 
 **Data:** 2026-06-22
 **Fase:** 2 — Integração
@@ -35,11 +35,11 @@ Skills já instaladas (confirmadas em `~/.claude/skills/`):
 
 ## Opções avaliadas
 
-### Opção A — Absorver (reempacotar dentro de cpe-engineering)
+### Opção A — Absorver (reempacotar dentro de atlas-engineering)
 **Resultado:** Rejeitado.
 - Criaria conflito de definição com a instalação existente.
 - Claude Code carregaria a mesma skill duas vezes com ids diferentes.
-- Violaria o princípio "nunca sobrescrever" do CPE.
+- Violaria o princípio "nunca sobrescrever" do Atlas.
 - Custo de manutenção duplicado ao atualizar o superpowers.
 
 ### Opção B — Ignorar (não registrar)
@@ -50,7 +50,7 @@ Skills já instaladas (confirmadas em `~/.claude/skills/`):
 ### Opção C — Referenciar como dependência ✅ (ESCOLHIDA)
 **Resultado:** Aprovado.
 - Registrar todas as 14 skills em `integrated.yaml` com status `reference`.
-- O instalador do CPE (Fase 8) verifica se o superpowers está instalado.
+- O instalador do Atlas (Fase 8) verifica se o superpowers está instalado.
 - Se não estiver: instala via `claude plugin install` como pré-requisito.
 - Update Engine monitora o superpowers separadamente.
 - Zero conflito, zero duplicação, rastreabilidade completa.
@@ -59,7 +59,7 @@ Skills já instaladas (confirmadas em `~/.claude/skills/`):
 
 ## Decisão
 
-> **O CPE trata o superpowers como dependência implícita, não como fonte
+> **O Atlas trata o superpowers como dependência implícita, não como fonte
 > de extração. Nenhuma das 14 skills é reempacotada dentro dos plugins `cpe-*`.**
 
 O instalador incluirá verificação:
@@ -67,7 +67,7 @@ O instalador incluirá verificação:
 if superpowers not installed → claude plugin install superpowers@marketplace
 ```
 
-A documentação do `cpe-engineering/README.md` listará o superpowers como
+A documentação do `atlas-engineering/README.md` listará o superpowers como
 pré-requisito com link para o repositório original.
 
 ---

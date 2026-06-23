@@ -86,7 +86,7 @@ function processSource(sourceId, integratedPath) {
 
 const sources = loadYaml(join(ROOT, 'sources', 'manifest.yaml'))?.sources ?? [];
 
-console.log(`\n=== CPE Audit Fix — cpe_path gaps${APPLY ? '' : ' [DRY-RUN]'} ===\n`);
+console.log(`\n=== Atlas Audit Fix — cpe_path gaps${APPLY ? '' : ' [DRY-RUN]'} ===\n`);
 
 let totalFixed = 0, totalMissing = 0;
 

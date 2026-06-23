@@ -1,4 +1,4 @@
-// report-engine.mjs — CPE Report Engine
+// report-engine.mjs — Atlas Report Engine
 // Gera CREDITS.md e INTEGRATION_REPORT.md a partir dos integrated.yaml.
 // Somente leitura. Nunca altera ~/.claude.
 
@@ -7,7 +7,7 @@ import { join }                      from 'node:path';
 import { ROOT, SOURCES_DIR, loadManifest, loadIntegrated, allSourceIds } from './integrate.mjs';
 
 export async function cmdReport({ verbose = false } = {}) {
-  console.log('\n=== CPE Report Engine ===\n');
+  console.log('\n=== Atlas Report Engine ===\n');
 
   const manifest  = loadManifest();
   const sources   = manifest.sources || [];
@@ -54,7 +54,7 @@ export async function cmdReport({ verbose = false } = {}) {
 
   let credits = `# Créditos e Licenças\n\n`;
   credits += `> Gerado por \`cpe report\` em ${today}.\n\n`;
-  credits += `O CPE não substitui os projetos originais. Atua como camada de curação\n`;
+  credits += `O Atlas não substitui os projetos originais. Atua como camada de curação\n`;
   credits += `preservando autoria, licença e rastreabilidade de cada contribuição.\n\n`;
   credits += `---\n\n`;
   credits += `## Fontes Upstream\n\n`;
@@ -100,7 +100,7 @@ export async function cmdReport({ verbose = false } = {}) {
 
   // ── Generate INTEGRATION_REPORT.md ───────────────────────────────────────
 
-  let report = `# CPE Integration Report\n\n`;
+  let report = `# Atlas Integration Report\n\n`;
   report += `> Gerado em ${today}\n\n`;
 
   const total     = allResources.length;

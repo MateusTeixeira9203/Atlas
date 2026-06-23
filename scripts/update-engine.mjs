@@ -1,4 +1,4 @@
-// update-engine.mjs — CPE Update Engine
+// update-engine.mjs — Atlas Update Engine
 // Detecta stubs substituíveis por conteúdo real do upstream.
 // Verifica existência via HEAD em raw.githubusercontent.com (sem rate limit).
 // NUNCA aplica mudanças — apenas gera relatório.
@@ -7,7 +7,7 @@
 //   REPLACEABLE  — upstream tem o arquivo no commit pinado
 //   AVAILABLE    — upstream tem o arquivo no HEAD (commit mais recente)
 //   NOT_FOUND    — arquivo não existe no upstream
-//   INCOMPLETE   — arquivo CPE existe (cpe_path) mas marcado stub (conteúdo sumário)
+//   INCOMPLETE   — arquivo Atlas existe (cpe_path) mas marcado stub (conteúdo sumário)
 
 import { existsSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join }                                  from 'node:path';
@@ -38,9 +38,9 @@ function parseRepo(repositoryUrl) {
 }
 
 function guessTargetPath(stub, src) {
-  // Build a suggested CPE path based on stub type and source
+  // Build a suggested Atlas path based on stub type and source
   const type    = stub.type || 'unknown';
-  const plugin  = stub.target_plugin || 'cpe-engineering';
+  const plugin  = stub.target_plugin || 'atlas-engineering';
   const origPath= stub.original_path || '';
   const basename= origPath.split('/').pop()?.replace(/\.md$/, '') || stub.id;
 
@@ -80,7 +80,7 @@ export async function cmdUpdate({ sourceFilter = null, json = false, verbose = f
     : sources;
 
   if (!json) {
-    console.log(`\n=== CPE Update Engine — ${today} ===`);
+    console.log(`\n=== Atlas Update Engine — ${today} ===`);
     console.log('Verificando disponibilidade dos stubs no upstream...\n');
   }
 
@@ -129,7 +129,7 @@ export async function cmdUpdate({ sourceFilter = null, json = false, verbose = f
       upstreamUrl: null,
     };
 
-    // Category: INCOMPLETE — file exists in CPE but is a stub (content is summary)
+    // Category: INCOMPLETE — file exists in Atlas but is a stub (content is summary)
     if (stub.cpe_path && existsSync(join(ROOT, stub.cpe_path))) {
       result.status = 'INCOMPLETE';
       if (parsed && stub.original_path) {
@@ -182,14 +182,14 @@ export async function cmdUpdate({ sourceFilter = null, json = false, verbose = f
   if (!json) {
     printSection('SUBSTITUÍVEIS — upstream tem o arquivo no commit pinado', replaceable, verbose);
     printSection('DISPONÍVEIS — upstream tem o arquivo no HEAD (commit mais recente)', available, verbose);
-    printSection('INCOMPLETOS — arquivo CPE existe mas conteúdo é sumário', incomplete, verbose);
+    printSection('INCOMPLETOS — arquivo Atlas existe mas conteúdo é sumário', incomplete, verbose);
     if (verbose) printSection('NÃO ENCONTRADOS', notFound, verbose);
 
     console.log('─'.repeat(60));
     console.log(`  Resumo:`);
     console.log(`    Substituíveis (pinned): ${replaceable.length}`);
     console.log(`    Disponíveis (HEAD):     ${available.length}`);
-    console.log(`    Incompletos (CPE stub): ${incomplete.length}`);
+    console.log(`    Incompletos (Atlas stub): ${incomplete.length}`);
     console.log(`    Não encontrados:        ${notFound.length}`);
     console.log();
     console.log('  Nota: Este engine apenas reporta. Substituição é manual.');
@@ -229,12 +229,12 @@ export async function cmdUpdate({ sourceFilter = null, json = false, verbose = f
 // ── Markdown report ────────────────────────────────────────────────────────
 
 async function generateMarkdownReport(data, replaceable, available, incomplete, notFound, today) {
-  let md = `# CPE Update Report\n\n`;
+  let md = `# Atlas Update Report\n\n`;
   md += `> Gerado em ${today} pelo \`cpe update\`.\n\n`;
   md += `| Categoria | Quantidade |\n|---|---|\n`;
   md += `| Substituíveis (pinned commit) | ${replaceable.length} |\n`;
   md += `| Disponíveis (HEAD) | ${available.length} |\n`;
-  md += `| Incompletos (stub em CPE) | ${incomplete.length} |\n`;
+  md += `| Incompletos (stub em Atlas) | ${incomplete.length} |\n`;
   md += `| Não encontrados | ${notFound.length} |\n\n`;
   md += `---\n\n`;
 
@@ -246,8 +246,8 @@ async function generateMarkdownReport(data, replaceable, available, incomplete, 
       md += `- **Tipo:** ${r.type}\n`;
       md += `- **Plugin:** ${r.targetPlugin}\n`;
       md += `- **Upstream:** ${r.upstreamUrl}\n`;
-      md += `- **Target CPE:** \`${r.suggestedPath || r.cpePath || 'a determinar'}\`\n\n`;
-      md += `\`\`\`bash\n# Para substituir:\ncurl -s "${r.upstreamUrl}" > /tmp/upstream.md\n# Revisar conteúdo, normalizar frontmatter CPE, salvar em ${r.suggestedPath || 'target'}\n\`\`\`\n\n`;
+      md += `- **Target Atlas:** \`${r.suggestedPath || r.cpePath || 'a determinar'}\`\n\n`;
+      md += `\`\`\`bash\n# Para substituir:\ncurl -s "${r.upstreamUrl}" > /tmp/upstream.md\n# Revisar conteúdo, normalizar frontmatter Atlas, salvar em ${r.suggestedPath || 'target'}\n\`\`\`\n\n`;
     }
   }
 
@@ -263,7 +263,7 @@ async function generateMarkdownReport(data, replaceable, available, incomplete, 
 
   if (incomplete.length) {
     md += `## Incompletos — Conteúdo é Sumário\n\n`;
-    md += `Estes arquivos existem no CPE mas foram criados a partir de sumários (WebFetch), não do conteúdo verbatim:\n\n`;
+    md += `Estes arquivos existem no Atlas mas foram criados a partir de sumários (WebFetch), não do conteúdo verbatim:\n\n`;
     for (const r of incomplete) {
       md += `- **${r.id}** → \`${r.cpePath}\`\n`;
       if (r.upstreamUrl) md += `  Upstream: ${r.upstreamUrl}\n`;
