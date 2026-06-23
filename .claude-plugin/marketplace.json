@@ -33,6 +33,13 @@
       "source": "./plugins/cpe-workflows",
       "category": "development",
       "author": { "name": "Mateus Teixeira (CPE)" }
+    },
+    {
+      "name": "atlas-mind",
+      "description": "A metade intelectual do Atlas: personas para discutir ideias, debater livros e pensar negocio, sempre com referencias reais. Par intelectual, nao executor de codigo.",
+      "source": "./plugins/atlas-mind",
+      "category": "development",
+      "author": { "name": "Mateus Teixeira (Atlas)" }
     }
   ]
 }

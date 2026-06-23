@@ -104,3 +104,13 @@ resources:
     source_commit: cpe-authored
     integrated_at: 2026-06-22
     adaptation: Gerador de handoff de sessão — diff, próximos passos, dívidas técnicas, como testar, contexto para próxima sessão.
+
+  - id: atlas-agent-thinking-partner
+    type: agent
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/agents/thinking-partner/AGENT.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — persona-núcleo da metade intelectual; par para debate de ideias com referências reais e antídoto contra bajulação.
