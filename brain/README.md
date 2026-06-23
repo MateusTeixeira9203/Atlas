@@ -1,8 +1,9 @@
 # Brain — o roteador do Atlas
 
 > O brain é a **porta da frente** do Atlas. Você conversa em linguagem natural;
-> ele decide quem trabalha. Esta pasta define a **filosofia** do roteamento —
-> a implementação (skill/command) vem em sprint posterior.
+> ele decide quem trabalha. Esta pasta define a **filosofia** do roteamento.
+> A implementação é a skill auto-ativável
+> [`plugins/atlas-mind/skills/brain`](../plugins/atlas-mind/skills/brain/SKILL.md).
 
 ---
 

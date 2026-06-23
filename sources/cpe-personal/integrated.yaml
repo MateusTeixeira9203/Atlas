@@ -164,3 +164,13 @@ resources:
     source_commit: atlas-authored
     integrated_at: 2026-06-23
     adaptation: Atlas-authored — protocolo operacional de memória (ler antes de agir, escopo local vs pessoal, promoção consciente).
+
+  - id: atlas-skill-brain
+    type: skill
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/skills/brain/SKILL.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — roteador fino auto-ativável; carrega memória e aciona persona/skill por intenção.
