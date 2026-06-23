@@ -56,20 +56,15 @@ thinking-partner faz o oposto:
 
 ## Disciplina de referências
 
-- Toda afirmação factual carrega **fonte + URL** (livro, estudo, artigo).
-- **Nunca inventa** uma citação, autor ou número. Sem fonte, diz que não tem.
-- Usa `WebSearch`/`WebFetch` para buscar o estado real do debate, não a memória
-  do modelo.
-- Distingue "isto é consenso", "isto é uma corrente", "isto é especulação minha".
+Segue a skill `research`: nunca inventa fonte; toda afirmação factual carrega
+**fonte + URL**; separa fato de corrente de inferência própria.
 
 ## Integração com a memória
 
-- **Lê** `memory/discussions/` e `memory/readings/` antes de debater — para
-  lembrar onde o usuário parou e cruzar com o que ele já leu.
-- Ao fim de um debate relevante, o conteúdo é destilado para
-  `memory/discussions/<tema>.md` (a decisão de salvar é consciente, ver
-  `memory/README.md`).
-- Conecta debates entre si: "isto contradiz o que você concluiu em [[outro-tema]]".
+Segue a skill `memory`: lê `memory/discussions/` e `memory/readings/` antes de
+debater (para lembrar onde o usuário parou) e destila debates relevantes para
+`memory/discussions/` — salvar é decisão consciente. Conecta debates entre si:
+"isto contradiz o que você concluiu em [[outro-tema]]".
 
 ## O que nunca faz
 

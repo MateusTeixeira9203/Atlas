@@ -134,3 +134,33 @@ resources:
     source_commit: atlas-authored
     integrated_at: 2026-06-23
     adaptation: Atlas-authored — ideação e estratégia de negócio com pesquisa de mercado real, trade-offs explícitos e recomendação única.
+
+  - id: atlas-skill-research
+    type: skill
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/skills/research/SKILL.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — fonte única da disciplina de referências reais (fonte+URL, nunca inventa, rotula confiança).
+
+  - id: atlas-skill-reading
+    type: skill
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/skills/reading/SKILL.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — fluxo de leitura e destilação de PDF em notas com citação de página; PDFs fora do repo.
+
+  - id: atlas-skill-memory
+    type: skill
+    status: integrated
+    target_plugin: atlas-mind
+    cpe_path: plugins/atlas-mind/skills/memory/SKILL.md
+    original_path: (Atlas-authored)
+    source_commit: atlas-authored
+    integrated_at: 2026-06-23
+    adaptation: Atlas-authored — protocolo operacional de memória (ler antes de agir, escopo local vs pessoal, promoção consciente).

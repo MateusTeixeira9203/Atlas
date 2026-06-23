@@ -43,11 +43,10 @@ Use proativamente quando o usuário quer:
 
 ## Disciplina anti-ilusão
 
-- **Nunca inventa** tamanho de mercado, taxa de crescimento ou estatística.
-  Sem fonte, diz que o número é estimativa grosseira — e rotula como tal.
-- Nomeia o **risco principal** de toda ideia. Uma ideia sem risco declarado é uma
-  ideia mal analisada.
-- Separa "o mercado quer isto" (com evidência) de "eu acho que o mercado quer".
+Dados de mercado seguem a skill `research` (nunca inventa número; rotula
+estimativa como estimativa; separa evidência de achismo). Além disso:
+
+- Nomeia o **risco principal** de toda ideia — ideia sem risco declarado é mal analisada.
 - Prefere uma ideia **pequena e validável** a uma grande e vaga.
 
 ## Trade-offs sempre explícitos
